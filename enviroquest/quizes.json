@@ -1,0 +1,3354 @@
+{
+  "sections": [
+    {
+      "level": "Beginner Step 1",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which gas is the main contributor to global warming?",
+          "options": [
+            "Oxygen",
+            "Carbon Dioxide",
+            "Nitrogen",
+            "Hydrogen"
+          ],
+          "answer": "Carbon Dioxide"
+        },
+        {
+          "id": 2,
+          "question": "The Montreal Protocol was signed to protect which layer of the atmosphere?",
+          "options": [
+            "Troposphere",
+            "Ozone layer",
+            "Ionosphere",
+            "Exosphere"
+          ],
+          "answer": "Ozone layer"
+        },
+        {
+          "id": 3,
+          "question": "Which renewable energy source is most widely used worldwide?",
+          "options": [
+            "Wind",
+            "Hydropower",
+            "Solar",
+            "Geothermal"
+          ],
+          "answer": "Hydropower"
+        },
+        {
+          "id": 4,
+          "question": "What does '3Rs' stand for in waste management?",
+          "options": [
+            "Reduce, Reuse, Recycle",
+            "Repair, Reuse, Recover",
+            "Reduce, Recycle, Repair",
+            "Remove, Reduce, Reuse"
+          ],
+          "answer": "Reduce, Reuse, Recycle"
+        },
+        {
+          "id": 5,
+          "question": "Which of these Indian movements focused on forest conservation?",
+          "options": [
+            "Chipko Movement",
+            "Swadeshi Movement",
+            "Quit India Movement",
+            "Bhoodan Movement"
+          ],
+          "answer": "Chipko Movement"
+        },
+        {
+          "id": 6,
+          "question": "Which gas is responsible for acid rain?",
+          "options": [
+            "Sulfur dioxide",
+            "Oxygen",
+            "Methane",
+            "Argon"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 7,
+          "question": "What is the leading cause of deforestation in tropical regions?",
+          "options": [
+            "Urbanization",
+            "Agriculture expansion",
+            "Mining",
+            "Logging"
+          ],
+          "answer": "Agriculture expansion"
+        },
+        {
+          "id": 8,
+          "question": "Which country emits the highest CO2 globally?",
+          "options": [
+            "USA",
+            "India",
+            "China",
+            "Russia"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 9,
+          "question": "Which of these is a biodegradable item?",
+          "options": [
+            "Banana peel",
+            "Plastic bottle",
+            "Glass jar",
+            "Aluminium can"
+          ],
+          "answer": "Banana peel"
+        },
+        {
+          "id": 10,
+          "question": "What does afforestation mean?",
+          "options": [
+            "Cutting down trees",
+            "Planting trees in barren land",
+            "Burning forests",
+            "Clearing land for agriculture"
+          ],
+          "answer": "Planting trees in barren land"
+        },
+        {
+          "id": 11,
+          "question": "Which gas is released in large amounts from rice fields?",
+          "options": [
+            "Methane",
+            "Oxygen",
+            "Carbon dioxide",
+            "Nitrogen"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 12,
+          "question": "Which of the following is a non-renewable resource?",
+          "options": [
+            "Coal",
+            "Solar energy",
+            "Wind energy",
+            "Hydropower"
+          ],
+          "answer": "Coal"
+        },
+        {
+          "id": 13,
+          "question": "Which day is celebrated as World Environment Day?",
+          "options": [
+            "April 22",
+            "June 5",
+            "March 22",
+            "December 1"
+          ],
+          "answer": "June 5"
+        },
+        {
+          "id": 14,
+          "question": "Which Indian mission promotes cleanliness and sanitation?",
+          "options": [
+            "Make in India",
+            "Digital India",
+            "Swachh Bharat Abhiyan",
+            "Skill India"
+          ],
+          "answer": "Swachh Bharat Abhiyan"
+        },
+        {
+          "id": 15,
+          "question": "Which of these gases is NOT a greenhouse gas?",
+          "options": [
+            "Methane",
+            "Oxygen",
+            "Carbon dioxide",
+            "Nitrous oxide"
+          ],
+          "answer": "Oxygen"
+        },
+        {
+          "id": 16,
+          "question": "Which ecosystem is called the 'lungs of the Earth'?",
+          "options": [
+            "Rainforests",
+            "Deserts",
+            "Grasslands",
+            "Oceans"
+          ],
+          "answer": "Rainforests"
+        },
+        {
+          "id": 17,
+          "question": "What does biodiversity mean?",
+          "options": [
+            "Variety of species",
+            "Only plants",
+            "Only animals",
+            "Only microorganisms"
+          ],
+          "answer": "Variety of species"
+        },
+        {
+          "id": 18,
+          "question": "Which is the cleanest source of energy?",
+          "options": [
+            "Solar",
+            "Coal",
+            "Oil",
+            "Natural Gas"
+          ],
+          "answer": "Solar"
+        },
+        {
+          "id": 19,
+          "question": "Which Indian river is most polluted?",
+          "options": [
+            "Ganga",
+            "Yamuna",
+            "Godavari",
+            "Narmada"
+          ],
+          "answer": "Yamuna"
+        },
+        {
+          "id": 20,
+          "question": "Which term describes the gradual increase in Earth's average temperature?",
+          "options": [
+            "Global warming",
+            "Acid rain",
+            "Deforestation",
+            "Desertification"
+          ],
+          "answer": "Global warming"
+        },
+        {
+          "id": 21,
+          "question": "Which of the following is a renewable resource?",
+          "options": [
+            "Petroleum",
+            "Wind",
+            "Coal",
+            "Natural Gas"
+          ],
+          "answer": "Wind"
+        },
+        {
+          "id": 22,
+          "question": "What is the main cause of ozone depletion?",
+          "options": [
+            "CFCs",
+            "CO2",
+            "Methane",
+            "Nitrous oxide"
+          ],
+          "answer": "CFCs"
+        },
+        {
+          "id": 23,
+          "question": "Which country hosted the Paris Climate Agreement in 2015?",
+          "options": [
+            "France",
+            "USA",
+            "Germany",
+            "India"
+          ],
+          "answer": "France"
+        },
+        {
+          "id": 24,
+          "question": "Which renewable energy depends on moving water?",
+          "options": [
+            "Solar",
+            "Wind",
+            "Hydropower",
+            "Nuclear"
+          ],
+          "answer": "Hydropower"
+        },
+        {
+          "id": 25,
+          "question": "Which practice reduces water wastage in agriculture?",
+          "options": [
+            "Drip irrigation",
+            "Flood irrigation",
+            "Excessive irrigation",
+            "Overgrazing"
+          ],
+          "answer": "Drip irrigation"
+        },
+        {
+          "id": 26,
+          "question": "Which gas is essential for photosynthesis?",
+          "options": [
+            "Carbon dioxide",
+            "Oxygen",
+            "Nitrogen",
+            "Hydrogen"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 27,
+          "question": "Which movement in India involved hugging trees to stop deforestation?",
+          "options": [
+            "Chipko Movement",
+            "Swadeshi Movement",
+            "Salt March",
+            "Quit India Movement"
+          ],
+          "answer": "Chipko Movement"
+        },
+        {
+          "id": 28,
+          "question": "Which pollutant is the major cause of smog?",
+          "options": [
+            "Particulate matter",
+            "Oxygen",
+            "Nitrogen",
+            "Water vapor"
+          ],
+          "answer": "Particulate matter"
+        },
+        {
+          "id": 29,
+          "question": "Which country is known for the maximum forest cover?",
+          "options": [
+            "Brazil",
+            "India",
+            "Canada",
+            "Russia"
+          ],
+          "answer": "Russia"
+        },
+        {
+          "id": 30,
+          "question": "Which type of pollution is caused by loudspeakers?",
+          "options": [
+            "Air pollution",
+            "Noise pollution",
+            "Soil pollution",
+            "Water pollution"
+          ],
+          "answer": "Noise pollution"
+        }
+      ]
+    },
+    {
+      "level": "Beginner Step 2",
+      "questions": [
+        {
+          "id": 31,
+          "question": "What is the main purpose of the Kyoto Protocol?",
+          "options": [
+            "Reduce greenhouse gases",
+            "Protect forests",
+            "Stop ozone depletion",
+            "Conserve water"
+          ],
+          "answer": "Reduce greenhouse gases"
+        },
+        {
+          "id": 32,
+          "question": "Which waste should be put in a blue bin?",
+          "options": [
+            "Dry waste",
+            "Organic waste",
+            "Hazardous waste",
+            "Biomedical waste"
+          ],
+          "answer": "Dry waste"
+        },
+        {
+          "id": 33,
+          "question": "Which renewable energy uses wind turbines?",
+          "options": [
+            "Wind energy",
+            "Solar energy",
+            "Tidal energy",
+            "Geothermal"
+          ],
+          "answer": "Wind energy"
+        },
+        {
+          "id": 34,
+          "question": "Which forest type covers the Amazon basin?",
+          "options": [
+            "Tropical rainforest",
+            "Deciduous forest",
+            "Mangrove forest",
+            "Taiga"
+          ],
+          "answer": "Tropical rainforest"
+        },
+        {
+          "id": 35,
+          "question": "Which term describes species found only in one region?",
+          "options": [
+            "Endemic",
+            "Exotic",
+            "Rare",
+            "Threatened"
+          ],
+          "answer": "Endemic"
+        },
+        {
+          "id": 36,
+          "question": "Which renewable energy is generated from ocean tides?",
+          "options": [
+            "Tidal energy",
+            "Solar energy",
+            "Wind energy",
+            "Geothermal"
+          ],
+          "answer": "Tidal energy"
+        },
+        {
+          "id": 37,
+          "question": "Which is the largest mangrove forest in the world?",
+          "options": [
+            "Sundarbans",
+            "Amazon",
+            "Congo Basin",
+            "Andaman"
+          ],
+          "answer": "Sundarbans"
+        },
+        {
+          "id": 38,
+          "question": "Which practice helps reduce air pollution?",
+          "options": [
+            "Carpooling",
+            "Open burning",
+            "Using diesel cars",
+            "Deforestation"
+          ],
+          "answer": "Carpooling"
+        },
+        {
+          "id": 39,
+          "question": "Which type of waste is generated by hospitals?",
+          "options": [
+            "Biomedical waste",
+            "E-waste",
+            "Plastic waste",
+            "Organic waste"
+          ],
+          "answer": "Biomedical waste"
+        },
+        {
+          "id": 40,
+          "question": "Which animal is known as a keystone species in forests?",
+          "options": [
+            "Tiger",
+            "Dog",
+            "Cow",
+            "Goat"
+          ],
+          "answer": "Tiger"
+        },
+        {
+          "id": 41,
+          "question": "Which Indian river is considered sacred but heavily polluted?",
+          "options": [
+            "Ganga",
+            "Yamuna",
+            "Godavari",
+            "Narmada"
+          ],
+          "answer": "Ganga"
+        },
+        {
+          "id": 42,
+          "question": "Which pollutant causes respiratory problems in humans?",
+          "options": [
+            "Particulate matter",
+            "Oxygen",
+            "Nitrogen",
+            "Helium"
+          ],
+          "answer": "Particulate matter"
+        },
+        {
+          "id": 43,
+          "question": "Which of these is an endangered species?",
+          "options": [
+            "Tiger",
+            "Cow",
+            "Dog",
+            "Cat"
+          ],
+          "answer": "Tiger"
+        },
+        {
+          "id": 44,
+          "question": "Which natural disaster is linked with global warming?",
+          "options": [
+            "Cyclones",
+            "Earthquakes",
+            "Volcanic eruptions",
+            "Tsunamis"
+          ],
+          "answer": "Cyclones"
+        },
+        {
+          "id": 45,
+          "question": "Which country has the highest installed solar power capacity?",
+          "options": [
+            "China",
+            "USA",
+            "India",
+            "Germany"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 46,
+          "question": "Which practice reduces soil erosion?",
+          "options": [
+            "Contour ploughing",
+            "Deforestation",
+            "Overgrazing",
+            "Mining"
+          ],
+          "answer": "Contour ploughing"
+        },
+        {
+          "id": 47,
+          "question": "Which waste is classified as e-waste?",
+          "options": [
+            "Old computers",
+            "Banana peel",
+            "Paper",
+            "Glass bottles"
+          ],
+          "answer": "Old computers"
+        },
+        {
+          "id": 48,
+          "question": "Which international day is observed on April 22?",
+          "options": [
+            "Earth Day",
+            "Water Day",
+            "Ozone Day",
+            "Forest Day"
+          ],
+          "answer": "Earth Day"
+        },
+        {
+          "id": 49,
+          "question": "Which of these is an example of renewable energy?",
+          "options": [
+            "Solar",
+            "Coal",
+            "Petrol",
+            "Diesel"
+          ],
+          "answer": "Solar"
+        },
+        {
+          "id": 50,
+          "question": "Which Indian city is known for severe air pollution and smog?",
+          "options": [
+            "Delhi",
+            "Mumbai",
+            "Chennai",
+            "Kolkata"
+          ],
+          "answer": "Delhi"
+        },
+        {
+          "id": 51,
+          "question": "Which country was the first to ban plastic bags nationwide?",
+          "options": [
+            "Bangladesh",
+            "India",
+            "USA",
+            "Germany"
+          ],
+          "answer": "Bangladesh"
+        },
+        {
+          "id": 52,
+          "question": "Which of the following is the largest source of renewable energy in India?",
+          "options": [
+            "Solar",
+            "Wind",
+            "Hydropower",
+            "Biomass"
+          ],
+          "answer": "Solar"
+        },
+        {
+          "id": 53,
+          "question": "Which environmental issue is caused by excess nutrients in water bodies?",
+          "options": [
+            "Eutrophication",
+            "Acid rain",
+            "Desertification",
+            "Deforestation"
+          ],
+          "answer": "Eutrophication"
+        },
+        {
+          "id": 54,
+          "question": "Which of the following gases is released from landfills?",
+          "options": [
+            "Methane",
+            "Oxygen",
+            "Carbon monoxide",
+            "Nitrogen"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 55,
+          "question": "Which is the largest source of marine pollution?",
+          "options": [
+            "Plastic waste",
+            "Oil spills",
+            "Sewage",
+            "Chemicals"
+          ],
+          "answer": "Plastic waste"
+        },
+        {
+          "id": 56,
+          "question": "Which of the following is a greenhouse gas?",
+          "options": [
+            "Nitrous oxide",
+            "Oxygen",
+            "Helium",
+            "Argon"
+          ],
+          "answer": "Nitrous oxide"
+        },
+        {
+          "id": 57,
+          "question": "Which practice helps in sustainable farming?",
+          "options": [
+            "Organic farming",
+            "Overgrazing",
+            "Deforestation",
+            "Burning stubble"
+          ],
+          "answer": "Organic farming"
+        },
+        {
+          "id": 58,
+          "question": "Which Indian state has the largest forest cover?",
+          "options": [
+            "Madhya Pradesh",
+            "Arunachal Pradesh",
+            "Odisha",
+            "Maharashtra"
+          ],
+          "answer": "Madhya Pradesh"
+        },
+        {
+          "id": 59,
+          "question": "Which pollutant is produced by incomplete combustion of fuels?",
+          "options": [
+            "Carbon monoxide",
+            "Carbon dioxide",
+            "Oxygen",
+            "Methane"
+          ],
+          "answer": "Carbon monoxide"
+        },
+        {
+          "id": 60,
+          "question": "Which of the following ecosystems has the highest biodiversity?",
+          "options": [
+            "Tropical rainforest",
+            "Desert",
+            "Grassland",
+            "Tundra"
+          ],
+          "answer": "Tropical rainforest"
+        }
+      ]
+    },
+    {
+      "level": "Intermediate Step 1",
+      "questions": [
+        {
+          "id": 61,
+          "question": "Which river is called the lifeline of Egypt?",
+          "options": [
+            "Amazon",
+            "Ganga",
+            "Nile",
+            "Yangtze"
+          ],
+          "answer": "Nile"
+        },
+        {
+          "id": 62,
+          "question": "Which type of energy is derived from decaying plants and animals?",
+          "options": [
+            "Biomass",
+            "Solar",
+            "Nuclear",
+            "Geothermal"
+          ],
+          "answer": "Biomass"
+        },
+        {
+          "id": 63,
+          "question": "Which of the following is a measure to control noise pollution?",
+          "options": [
+            "Planting trees",
+            "More loudspeakers",
+            "Industrialization",
+            "Deforestation"
+          ],
+          "answer": "Planting trees"
+        },
+        {
+          "id": 64,
+          "question": "Which Indian city is called the Silicon Valley of India but faces severe water crisis?",
+          "options": [
+            "Hyderabad",
+            "Bengaluru",
+            "Pune",
+            "Gurugram"
+          ],
+          "answer": "Bengaluru"
+        },
+        {
+          "id": 65,
+          "question": "Which is the main greenhouse gas emitted by vehicles?",
+          "options": [
+            "Carbon dioxide",
+            "Nitrous oxide",
+            "Methane",
+            "Ozone"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 66,
+          "question": "Which gas is known as laughing gas and also a greenhouse gas?",
+          "options": [
+            "Nitrous oxide",
+            "Methane",
+            "Oxygen",
+            "Carbon dioxide"
+          ],
+          "answer": "Nitrous oxide"
+        },
+        {
+          "id": 67,
+          "question": "Which international day is observed on March 22?",
+          "options": [
+            "World Water Day",
+            "World Earth Day",
+            "World Ozone Day",
+            "World Environment Day"
+          ],
+          "answer": "World Water Day"
+        },
+        {
+          "id": 68,
+          "question": "Which of these is a non-biodegradable waste?",
+          "options": [
+            "Plastic",
+            "Vegetable peels",
+            "Paper",
+            "Cloth"
+          ],
+          "answer": "Plastic"
+        },
+        {
+          "id": 69,
+          "question": "Which of the following is a direct effect of deforestation?",
+          "options": [
+            "Loss of biodiversity",
+            "Soil erosion",
+            "Climate change",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 70,
+          "question": "Which country has the Amazon rainforest?",
+          "options": [
+            "Brazil",
+            "India",
+            "Indonesia",
+            "Congo"
+          ],
+          "answer": "Brazil"
+        },
+        {
+          "id": 71,
+          "question": "Which of the following is a fossil fuel?",
+          "options": [
+            "Coal",
+            "Sunlight",
+            "Wind",
+            "Water"
+          ],
+          "answer": "Coal"
+        },
+        {
+          "id": 72,
+          "question": "Which pollutant causes the maximum harm to the ozone layer?",
+          "options": [
+            "CFCs",
+            "CO2",
+            "NOx",
+            "SO2"
+          ],
+          "answer": "CFCs"
+        },
+        {
+          "id": 73,
+          "question": "Which city is known as the most air-polluted city in India (2023)?",
+          "options": [
+            "Delhi",
+            "Ghaziabad",
+            "Kanpur",
+            "Patna"
+          ],
+          "answer": "Delhi"
+        },
+        {
+          "id": 74,
+          "question": "Which of the following is a clean cooking fuel?",
+          "options": [
+            "LPG",
+            "Wood",
+            "Coal",
+            "Kerosene"
+          ],
+          "answer": "LPG"
+        },
+        {
+          "id": 75,
+          "question": "Which of these is a greenhouse gas?",
+          "options": [
+            "Methane",
+            "Carbon dioxide",
+            "Nitrous oxide",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 76,
+          "question": "Which waste is generated from old computers and electronics?",
+          "options": [
+            "E-waste",
+            "Plastic waste",
+            "Organic waste",
+            "Biomedical waste"
+          ],
+          "answer": "E-waste"
+        },
+        {
+          "id": 77,
+          "question": "Which of the following is the largest desert in the world?",
+          "options": [
+            "Sahara",
+            "Gobi",
+            "Kalahari",
+            "Thar"
+          ],
+          "answer": "Sahara"
+        },
+        {
+          "id": 78,
+          "question": "Which renewable energy is obtained from the sun?",
+          "options": [
+            "Solar",
+            "Wind",
+            "Tidal",
+            "Geothermal"
+          ],
+          "answer": "Solar"
+        },
+        {
+          "id": 79,
+          "question": "Which of the following practices reduces plastic waste?",
+          "options": [
+            "Recycling",
+            "Landfilling",
+            "Burning",
+            "Dumping in oceans"
+          ],
+          "answer": "Recycling"
+        },
+        {
+          "id": 80,
+          "question": "Which of the following is the main cause of coral bleaching?",
+          "options": [
+            "Rising sea temperatures",
+            "Oil spills",
+            "Overfishing",
+            "Tourism"
+          ],
+          "answer": "Rising sea temperatures"
+        },
+        {
+          "id": 81,
+          "question": "Which of the following is a renewable resource?",
+          "options": [
+            "Sunlight",
+            "Petrol",
+            "Diesel",
+            "Coal"
+          ],
+          "answer": "Sunlight"
+        },
+        {
+          "id": 82,
+          "question": "Which animal is called the 'ship of the desert'?",
+          "options": [
+            "Camel",
+            "Horse",
+            "Donkey",
+            "Elephant"
+          ],
+          "answer": "Camel"
+        },
+        {
+          "id": 83,
+          "question": "Which gas do humans exhale during respiration?",
+          "options": [
+            "Carbon dioxide",
+            "Oxygen",
+            "Nitrogen",
+            "Helium"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 84,
+          "question": "Which of the following is a consequence of melting glaciers?",
+          "options": [
+            "Rising sea levels",
+            "Desert expansion",
+            "Forest growth",
+            "More rainfall"
+          ],
+          "answer": "Rising sea levels"
+        },
+        {
+          "id": 85,
+          "question": "Which renewable energy is generated from Earth's heat?",
+          "options": [
+            "Geothermal",
+            "Solar",
+            "Wind",
+            "Hydropower"
+          ],
+          "answer": "Geothermal"
+        },
+        {
+          "id": 86,
+          "question": "Which pollutant is measured by the AQI index?",
+          "options": [
+            "Air pollutants",
+            "Noise",
+            "Water pollutants",
+            "Radiation"
+          ],
+          "answer": "Air pollutants"
+        },
+        {
+          "id": 87,
+          "question": "Which Indian movement protested against the Tehri Dam construction?",
+          "options": [
+            "Chipko Movement",
+            "Save Silent Valley",
+            "Narmada Bachao Andolan",
+            "Green Revolution"
+          ],
+          "answer": "Narmada Bachao Andolan"
+        },
+        {
+          "id": 88,
+          "question": "Which international day is celebrated on September 16?",
+          "options": [
+            "World Ozone Day",
+            "Earth Day",
+            "World Forest Day",
+            "World Water Day"
+          ],
+          "answer": "World Ozone Day"
+        },
+        {
+          "id": 89,
+          "question": "Which renewable energy source uses turbines under the sea?",
+          "options": [
+            "Tidal energy",
+            "Wind energy",
+            "Geothermal energy",
+            "Solar energy"
+          ],
+          "answer": "Tidal energy"
+        },
+        {
+          "id": 90,
+          "question": "Which is the largest coral reef system in the world?",
+          "options": [
+            "Great Barrier Reef",
+            "Sundarbans",
+            "Andaman reefs",
+            "Hawaiian reefs"
+          ],
+          "answer": "Great Barrier Reef"
+        }
+      ]
+    },
+    {
+      "level": "Intermediate Step 2",
+      "questions": [
+        {
+          "id": 91,
+          "question": "Which of the following is NOT a cause of global warming?",
+          "options": [
+            "Burning fossil fuels",
+            "Deforestation",
+            "Planting trees",
+            "Industrialization"
+          ],
+          "answer": "Planting trees"
+        },
+        {
+          "id": 92,
+          "question": "Which waste should be put in a green bin?",
+          "options": [
+            "Organic waste",
+            "Plastic",
+            "Glass",
+            "Metal"
+          ],
+          "answer": "Organic waste"
+        },
+        {
+          "id": 93,
+          "question": "Which of the following ecosystems stores the most carbon?",
+          "options": [
+            "Forests",
+            "Oceans",
+            "Deserts",
+            "Grasslands"
+          ],
+          "answer": "Oceans"
+        },
+        {
+          "id": 94,
+          "question": "Which practice helps conserve biodiversity?",
+          "options": [
+            "Wildlife sanctuaries",
+            "Deforestation",
+            "Urbanization",
+            "Hunting"
+          ],
+          "answer": "Wildlife sanctuaries"
+        },
+        {
+          "id": 95,
+          "question": "Which gas is released during photosynthesis?",
+          "options": [
+            "Oxygen",
+            "Carbon dioxide",
+            "Methane",
+            "Nitrogen"
+          ],
+          "answer": "Oxygen"
+        },
+        {
+          "id": 96,
+          "question": "Which layer of the atmosphere contains weather phenomena?",
+          "options": [
+            "Troposphere",
+            "Stratosphere",
+            "Mesosphere",
+            "Exosphere"
+          ],
+          "answer": "Troposphere"
+        },
+        {
+          "id": 97,
+          "question": "Which Indian city is called the 'Pink City' but faces severe water scarcity?",
+          "options": [
+            "Jaipur",
+            "Bhopal",
+            "Lucknow",
+            "Patna"
+          ],
+          "answer": "Jaipur"
+        },
+        {
+          "id": 98,
+          "question": "Which of the following is an international organization focusing on the environment?",
+          "options": [
+            "UNEP",
+            "WHO",
+            "WTO",
+            "FAO"
+          ],
+          "answer": "UNEP"
+        },
+        {
+          "id": 99,
+          "question": "Which pollutant is responsible for acid rain?",
+          "options": [
+            "Sulfur dioxide",
+            "Methane",
+            "Carbon dioxide",
+            "Oxygen"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 100,
+          "question": "Which renewable energy source is used in windmills?",
+          "options": [
+            "Wind energy",
+            "Solar energy",
+            "Tidal energy",
+            "Geothermal"
+          ],
+          "answer": "Wind energy"
+        },
+        {
+          "id": 101,
+          "question": "Which of the following is the main cause of desertification?",
+          "options": [
+            "Deforestation",
+            "Overgrazing",
+            "Over-irrigation",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 102,
+          "question": "Which of these is the main cause of rising sea levels?",
+          "options": [
+            "Melting glaciers",
+            "Volcanic eruptions",
+            "Earthquakes",
+            "Tsunamis"
+          ],
+          "answer": "Melting glaciers"
+        },
+        {
+          "id": 103,
+          "question": "Which of the following is a renewable energy resource?",
+          "options": [
+            "Natural gas",
+            "Wind energy",
+            "Coal",
+            "Petroleum"
+          ],
+          "answer": "Wind energy"
+        },
+        {
+          "id": 104,
+          "question": "Which Indian initiative promotes large-scale solar energy projects?",
+          "options": [
+            "National Solar Mission",
+            "Digital India",
+            "Make in India",
+            "Skill India"
+          ],
+          "answer": "National Solar Mission"
+        },
+        {
+          "id": 105,
+          "question": "Which pollutant mainly comes from vehicles?",
+          "options": [
+            "Carbon monoxide",
+            "Sulfur dioxide",
+            "Methane",
+            "Nitrous oxide"
+          ],
+          "answer": "Carbon monoxide"
+        },
+        {
+          "id": 106,
+          "question": "Which country hosted the Earth Summit in 1992?",
+          "options": [
+            "Brazil",
+            "India",
+            "USA",
+            "Japan"
+          ],
+          "answer": "Brazil"
+        },
+        {
+          "id": 107,
+          "question": "Which practice can reduce deforestation?",
+          "options": [
+            "Paper recycling",
+            "Open grazing",
+            "Mining",
+            "Urban expansion"
+          ],
+          "answer": "Paper recycling"
+        },
+        {
+          "id": 108,
+          "question": "Which is the largest freshwater lake in the world?",
+          "options": [
+            "Lake Baikal",
+            "Lake Victoria",
+            "Lake Superior",
+            "Caspian Sea"
+          ],
+          "answer": "Lake Baikal"
+        },
+        {
+          "id": 109,
+          "question": "Which greenhouse gas is released by livestock farming?",
+          "options": [
+            "Methane",
+            "Carbon dioxide",
+            "Nitrous oxide",
+            "Oxygen"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 110,
+          "question": "Which international day is observed on April 22?",
+          "options": [
+            "Earth Day",
+            "World Water Day",
+            "Ozone Day",
+            "Environment Day"
+          ],
+          "answer": "Earth Day"
+        },
+        {
+          "id": 111,
+          "question": "Which energy source is used in nuclear power plants?",
+          "options": [
+            "Uranium",
+            "Coal",
+            "Solar",
+            "Oil"
+          ],
+          "answer": "Uranium"
+        },
+        {
+          "id": 112,
+          "question": "Which environmental problem is caused by burning fossil fuels?",
+          "options": [
+            "Global warming",
+            "Deforestation",
+            "Eutrophication",
+            "Desertification"
+          ],
+          "answer": "Global warming"
+        },
+        {
+          "id": 113,
+          "question": "Which of the following is NOT a renewable source of energy?",
+          "options": [
+            "Coal",
+            "Solar",
+            "Wind",
+            "Hydropower"
+          ],
+          "answer": "Coal"
+        },
+        {
+          "id": 114,
+          "question": "Which of these gases is also called 'marsh gas'?",
+          "options": [
+            "Methane",
+            "Carbon dioxide",
+            "Nitrous oxide",
+            "Ozone"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 115,
+          "question": "Which type of farming uses no synthetic fertilizers or pesticides?",
+          "options": [
+            "Organic farming",
+            "Commercial farming",
+            "Shifting cultivation",
+            "Mono-cropping"
+          ],
+          "answer": "Organic farming"
+        },
+        {
+          "id": 116,
+          "question": "Which is the world’s largest forest?",
+          "options": [
+            "Amazon Rainforest",
+            "Congo Forest",
+            "Taiga Forest",
+            "Sundarbans"
+          ],
+          "answer": "Amazon Rainforest"
+        },
+        {
+          "id": 117,
+          "question": "Which of these gases is known as a greenhouse gas?",
+          "options": [
+            "Carbon dioxide",
+            "Methane",
+            "Nitrous oxide",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 118,
+          "question": "Which city is known as the most polluted city in the world (2023)?",
+          "options": [
+            "Delhi",
+            "Beijing",
+            "Lahore",
+            "Dhaka"
+          ],
+          "answer": "Delhi"
+        },
+        {
+          "id": 119,
+          "question": "Which renewable energy source is used in rooftop panels?",
+          "options": [
+            "Solar",
+            "Wind",
+            "Geothermal",
+            "Tidal"
+          ],
+          "answer": "Solar"
+        },
+        {
+          "id": 120,
+          "question": "Which natural disaster is most likely to increase due to climate change?",
+          "options": [
+            "Floods",
+            "Earthquakes",
+            "Volcanoes",
+            "Landslides"
+          ],
+          "answer": "Floods"
+        }
+      ]
+    },
+    {
+      "level": "Intermediate Step 3",
+      "questions": [
+        {
+          "id": 121,
+          "question": "Which of the following is a water-borne disease?",
+          "options": [
+            "Cholera",
+            "Tuberculosis",
+            "Malaria",
+            "Typhoid"
+          ],
+          "answer": "Cholera"
+        },
+        {
+          "id": 122,
+          "question": "Which country generates the most solar energy?",
+          "options": [
+            "China",
+            "India",
+            "USA",
+            "Germany"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 123,
+          "question": "Which human activity is the major cause of soil erosion?",
+          "options": [
+            "Deforestation",
+            "Over-irrigation",
+            "Overgrazing",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 124,
+          "question": "Which layer of atmosphere protects us from harmful UV rays?",
+          "options": [
+            "Ozone layer",
+            "Troposphere",
+            "Mesosphere",
+            "Exosphere"
+          ],
+          "answer": "Ozone layer"
+        },
+        {
+          "id": 125,
+          "question": "Which energy is produced by hot springs and geysers?",
+          "options": [
+            "Geothermal energy",
+            "Solar energy",
+            "Hydropower",
+            "Wind energy"
+          ],
+          "answer": "Geothermal energy"
+        },
+        {
+          "id": 126,
+          "question": "Which international treaty aims to reduce greenhouse gas emissions?",
+          "options": [
+            "Kyoto Protocol",
+            "Montreal Protocol",
+            "Paris Agreement",
+            "Stockholm Declaration"
+          ],
+          "answer": "Kyoto Protocol"
+        },
+        {
+          "id": 127,
+          "question": "Which renewable energy is used in wind turbines?",
+          "options": [
+            "Wind energy",
+            "Solar energy",
+            "Nuclear energy",
+            "Geothermal"
+          ],
+          "answer": "Wind energy"
+        },
+        {
+          "id": 128,
+          "question": "Which pollutant is commonly found in pesticides?",
+          "options": [
+            "DDT",
+            "Oxygen",
+            "Methane",
+            "Carbon dioxide"
+          ],
+          "answer": "DDT"
+        },
+        {
+          "id": 129,
+          "question": "Which international day is celebrated on June 8?",
+          "options": [
+            "World Oceans Day",
+            "World Environment Day",
+            "Earth Day",
+            "World Wildlife Day"
+          ],
+          "answer": "World Oceans Day"
+        },
+        {
+          "id": 130,
+          "question": "Which type of pollution is caused by excessive lighting in cities?",
+          "options": [
+            "Light pollution",
+            "Air pollution",
+            "Noise pollution",
+            "Soil pollution"
+          ],
+          "answer": "Light pollution"
+        },
+        {
+          "id": 131,
+          "question": "Which gas is the main component of biogas?",
+          "options": [
+            "Methane",
+            "Carbon dioxide",
+            "Oxygen",
+            "Nitrogen"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 132,
+          "question": "Which city in India is famous for its green cover?",
+          "options": [
+            "Chandigarh",
+            "Delhi",
+            "Mumbai",
+            "Chennai"
+          ],
+          "answer": "Chandigarh"
+        },
+        {
+          "id": 133,
+          "question": "Which pollutant causes global warming the most?",
+          "options": [
+            "Carbon dioxide",
+            "Oxygen",
+            "Methane",
+            "Nitrogen"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 134,
+          "question": "Which is the largest source of freshwater on Earth?",
+          "options": [
+            "Glaciers and ice caps",
+            "Rivers",
+            "Groundwater",
+            "Lakes"
+          ],
+          "answer": "Glaciers and ice caps"
+        },
+        {
+          "id": 135,
+          "question": "Which of the following helps in rainwater conservation?",
+          "options": [
+            "Rainwater harvesting",
+            "Deforestation",
+            "Urbanization",
+            "Over-irrigation"
+          ],
+          "answer": "Rainwater harvesting"
+        },
+        {
+          "id": 136,
+          "question": "Which gas is essential for breathing?",
+          "options": [
+            "Oxygen",
+            "Carbon dioxide",
+            "Nitrogen",
+            "Methane"
+          ],
+          "answer": "Oxygen"
+        },
+        {
+          "id": 137,
+          "question": "Which of these is the largest carbon sink?",
+          "options": [
+            "Oceans",
+            "Forests",
+            "Soil",
+            "Mountains"
+          ],
+          "answer": "Oceans"
+        },
+        {
+          "id": 138,
+          "question": "Which renewable energy is used in tidal barrages?",
+          "options": [
+            "Tidal energy",
+            "Solar",
+            "Wind",
+            "Geothermal"
+          ],
+          "answer": "Tidal energy"
+        },
+        {
+          "id": 139,
+          "question": "Which international organization is responsible for climate research?",
+          "options": [
+            "IPCC",
+            "WHO",
+            "WTO",
+            "IMF"
+          ],
+          "answer": "IPCC"
+        },
+        {
+          "id": 140,
+          "question": "Which practice reduces household energy use?",
+          "options": [
+            "Using LED bulbs",
+            "Keeping lights on",
+            "Overusing ACs",
+            "Leaving fans running"
+          ],
+          "answer": "Using LED bulbs"
+        },
+        {
+          "id": 141,
+          "question": "Which forest type is found in coastal areas?",
+          "options": [
+            "Mangrove forests",
+            "Taiga",
+            "Deciduous",
+            "Rainforests"
+          ],
+          "answer": "Mangrove forests"
+        },
+        {
+          "id": 142,
+          "question": "Which waste is generated by hospitals?",
+          "options": [
+            "Biomedical waste",
+            "E-waste",
+            "Organic waste",
+            "Plastic waste"
+          ],
+          "answer": "Biomedical waste"
+        },
+        {
+          "id": 143,
+          "question": "Which greenhouse gas is released from fertilizer use?",
+          "options": [
+            "Nitrous oxide",
+            "Methane",
+            "Carbon dioxide",
+            "Ozone"
+          ],
+          "answer": "Nitrous oxide"
+        },
+        {
+          "id": 144,
+          "question": "Which of these is a water conservation method?",
+          "options": [
+            "Check dams",
+            "Deforestation",
+            "Over-irrigation",
+            "Burning fields"
+          ],
+          "answer": "Check dams"
+        },
+        {
+          "id": 145,
+          "question": "Which of the following is a natural renewable energy?",
+          "options": [
+            "Wind",
+            "Coal",
+            "Oil",
+            "Natural Gas"
+          ],
+          "answer": "Wind"
+        },
+        {
+          "id": 146,
+          "question": "Which of these gases is not a greenhouse gas?",
+          "options": [
+            "Carbon dioxide",
+            "Methane",
+            "Nitrous oxide",
+            "Hydrogen"
+          ],
+          "answer": "Hydrogen"
+        },
+        {
+          "id": 147,
+          "question": "Which waste is used to make compost?",
+          "options": [
+            "Organic waste",
+            "Plastic waste",
+            "E-waste",
+            "Glass waste"
+          ],
+          "answer": "Organic waste"
+        },
+        {
+          "id": 148,
+          "question": "Which Indian project aims to link rivers for water conservation?",
+          "options": [
+            "River Linking Project",
+            "Green Revolution",
+            "White Revolution",
+            "Blue Revolution"
+          ],
+          "answer": "River Linking Project"
+        },
+        {
+          "id": 149,
+          "question": "Which natural disaster is measured on the Richter scale?",
+          "options": [
+            "Earthquake",
+            "Flood",
+            "Cyclone",
+            "Tsunami"
+          ],
+          "answer": "Earthquake"
+        },
+        {
+          "id": 150,
+          "question": "Which pollutant causes Minamata disease?",
+          "options": [
+            "Mercury",
+            "Lead",
+            "Arsenic",
+            "Cadmium"
+          ],
+          "answer": "Mercury"
+        }
+      ]
+    },
+    {
+      "level": "Advanced Step 1",
+      "questions": [
+        {
+          "id": 151,
+          "question": "Which of these is the main cause of global warming?",
+          "options": [
+            "Greenhouse gases",
+            "Ozone depletion",
+            "Deforestation",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 152,
+          "question": "Which international agreement replaced the Kyoto Protocol?",
+          "options": [
+            "Paris Agreement",
+            "Montreal Protocol",
+            "Rio Summit",
+            "Stockholm Declaration"
+          ],
+          "answer": "Paris Agreement"
+        },
+        {
+          "id": 153,
+          "question": "Which waste is produced in large quantities from thermal power plants?",
+          "options": [
+            "Fly ash",
+            "Plastic waste",
+            "E-waste",
+            "Organic waste"
+          ],
+          "answer": "Fly ash"
+        },
+        {
+          "id": 154,
+          "question": "Which renewable energy uses photovoltaic cells?",
+          "options": [
+            "Solar energy",
+            "Wind energy",
+            "Hydropower",
+            "Geothermal"
+          ],
+          "answer": "Solar energy"
+        },
+        {
+          "id": 155,
+          "question": "Which of these is the major cause of ozone depletion?",
+          "options": [
+            "CFCs",
+            "CO2",
+            "Methane",
+            "Nitrous oxide"
+          ],
+          "answer": "CFCs"
+        },
+        {
+          "id": 156,
+          "question": "Which country hosted the COP26 Climate Summit in 2021?",
+          "options": [
+            "UK",
+            "USA",
+            "France",
+            "India"
+          ],
+          "answer": "UK"
+        },
+        {
+          "id": 157,
+          "question": "Which of these is a method of solid waste management?",
+          "options": [
+            "Landfilling",
+            "Open dumping",
+            "Burning",
+            "None of these"
+          ],
+          "answer": "Landfilling"
+        },
+        {
+          "id": 158,
+          "question": "Which international day is observed on March 21?",
+          "options": [
+            "World Forestry Day",
+            "Earth Day",
+            "World Water Day",
+            "Ozone Day"
+          ],
+          "answer": "World Forestry Day"
+        },
+        {
+          "id": 159,
+          "question": "Which of these gases is known as 'sewer gas'?",
+          "options": [
+            "Methane",
+            "Oxygen",
+            "Nitrogen",
+            "Carbon dioxide"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 160,
+          "question": "Which of these is an endangered bird species in India?",
+          "options": [
+            "Great Indian Bustard",
+            "Crow",
+            "Pigeon",
+            "Sparrow"
+          ],
+          "answer": "Great Indian Bustard"
+        },
+        {
+          "id": 161,
+          "question": "Which is the main pollutant released from coal combustion?",
+          "options": [
+            "Sulfur dioxide",
+            "Oxygen",
+            "Methane",
+            "Helium"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 162,
+          "question": "Which renewable energy source uses dams?",
+          "options": [
+            "Hydropower",
+            "Solar",
+            "Wind",
+            "Geothermal"
+          ],
+          "answer": "Hydropower"
+        },
+        {
+          "id": 163,
+          "question": "Which country produces the most wind energy?",
+          "options": [
+            "China",
+            "India",
+            "USA",
+            "Germany"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 164,
+          "question": "Which environmental problem is associated with excessive use of fertilizers?",
+          "options": [
+            "Soil pollution",
+            "Water pollution",
+            "Eutrophication",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 165,
+          "question": "Which international day is celebrated on May 22?",
+          "options": [
+            "International Day for Biodiversity",
+            "Earth Day",
+            "Ozone Day",
+            "World Forestry Day"
+          ],
+          "answer": "International Day for Biodiversity"
+        },
+        {
+          "id": 166,
+          "question": "Which gas is the major component of natural gas?",
+          "options": [
+            "Methane",
+            "Propane",
+            "Butane",
+            "Carbon dioxide"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 167,
+          "question": "Which country is famous for geothermal energy use?",
+          "options": [
+            "Iceland",
+            "India",
+            "China",
+            "Australia"
+          ],
+          "answer": "Iceland"
+        },
+        {
+          "id": 168,
+          "question": "Which of these is an impact of acid rain?",
+          "options": [
+            "Damage to crops",
+            "Damage to monuments",
+            "Aquatic life loss",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 169,
+          "question": "Which is the largest source of freshwater on Earth?",
+          "options": [
+            "Glaciers and ice caps",
+            "Rivers",
+            "Lakes",
+            "Groundwater"
+          ],
+          "answer": "Glaciers and ice caps"
+        },
+        {
+          "id": 170,
+          "question": "Which is the main cause of global sea-level rise?",
+          "options": [
+            "Melting glaciers",
+            "Earthquakes",
+            "Volcanoes",
+            "Cyclones"
+          ],
+          "answer": "Melting glaciers"
+        },
+        {
+          "id": 171,
+          "question": "Which waste is produced by electronic gadgets?",
+          "options": [
+            "E-waste",
+            "Plastic waste",
+            "Organic waste",
+            "Biomedical waste"
+          ],
+          "answer": "E-waste"
+        },
+        {
+          "id": 172,
+          "question": "Which gas is used in fire extinguishers?",
+          "options": [
+            "Carbon dioxide",
+            "Oxygen",
+            "Nitrogen",
+            "Methane"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 173,
+          "question": "Which ecosystem covers most of Earth’s surface?",
+          "options": [
+            "Oceans",
+            "Forests",
+            "Deserts",
+            "Grasslands"
+          ],
+          "answer": "Oceans"
+        },
+        {
+          "id": 174,
+          "question": "Which pollutant is measured by the term PM2.5?",
+          "options": [
+            "Fine particulate matter",
+            "Carbon dioxide",
+            "Ozone",
+            "Nitrogen dioxide"
+          ],
+          "answer": "Fine particulate matter"
+        },
+        {
+          "id": 175,
+          "question": "Which energy resource is formed from fossilized plants and animals?",
+          "options": [
+            "Fossil fuels",
+            "Solar energy",
+            "Wind energy",
+            "Geothermal energy"
+          ],
+          "answer": "Fossil fuels"
+        },
+        {
+          "id": 176,
+          "question": "Which practice can reduce air pollution in cities?",
+          "options": [
+            "Carpooling",
+            "More cars",
+            "Deforestation",
+            "Open burning"
+          ],
+          "answer": "Carpooling"
+        },
+        {
+          "id": 177,
+          "question": "Which of the following gases is lighter than air and used in balloons?",
+          "options": [
+            "Helium",
+            "Carbon dioxide",
+            "Oxygen",
+            "Nitrogen"
+          ],
+          "answer": "Helium"
+        },
+        {
+          "id": 178,
+          "question": "Which of these gases causes acid rain?",
+          "options": [
+            "Sulfur dioxide",
+            "Methane",
+            "Oxygen",
+            "Helium"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 179,
+          "question": "Which country is the largest producer of solar panels?",
+          "options": [
+            "China",
+            "India",
+            "USA",
+            "Germany"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 180,
+          "question": "Which of these is a major cause of loss of biodiversity?",
+          "options": [
+            "Deforestation",
+            "Pollution",
+            "Climate change",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        }
+      ]
+    },
+    {
+      "level": "Advanced Step 2",
+      "questions": [
+        {
+          "id": 181,
+          "question": "Which type of farming conserves soil fertility?",
+          "options": [
+            "Crop rotation",
+            "Shifting cultivation",
+            "Overgrazing",
+            "Deforestation"
+          ],
+          "answer": "Crop rotation"
+        },
+        {
+          "id": 182,
+          "question": "Which of these gases is used in refrigerators and harms the ozone layer?",
+          "options": [
+            "CFCs",
+            "Methane",
+            "Oxygen",
+            "Nitrogen"
+          ],
+          "answer": "CFCs"
+        },
+        {
+          "id": 183,
+          "question": "Which renewable energy is obtained from organic matter?",
+          "options": [
+            "Biomass energy",
+            "Solar",
+            "Wind",
+            "Geothermal"
+          ],
+          "answer": "Biomass energy"
+        },
+        {
+          "id": 184,
+          "question": "Which pollutant caused the Bhopal Gas Tragedy?",
+          "options": [
+            "Methyl isocyanate",
+            "Methane",
+            "Carbon monoxide",
+            "Sulfur dioxide"
+          ],
+          "answer": "Methyl isocyanate"
+        },
+        {
+          "id": 185,
+          "question": "Which international organization is responsible for environmental protection?",
+          "options": [
+            "UNEP",
+            "WHO",
+            "WTO",
+            "IMF"
+          ],
+          "answer": "UNEP"
+        },
+        {
+          "id": 186,
+          "question": "Which country hosted COP21 where the Paris Agreement was signed?",
+          "options": [
+            "France",
+            "USA",
+            "UK",
+            "Germany"
+          ],
+          "answer": "France"
+        },
+        {
+          "id": 187,
+          "question": "Which pollutant is released by burning plastics?",
+          "options": [
+            "Dioxins",
+            "Oxygen",
+            "Methane",
+            "Carbon dioxide"
+          ],
+          "answer": "Dioxins"
+        },
+        {
+          "id": 188,
+          "question": "Which Indian campaign aims to clean rivers and water bodies?",
+          "options": [
+            "Namami Gange",
+            "Swachh Bharat",
+            "Make in India",
+            "Digital India"
+          ],
+          "answer": "Namami Gange"
+        },
+        {
+          "id": 189,
+          "question": "Which type of pollution is caused by excessive honking?",
+          "options": [
+            "Noise pollution",
+            "Air pollution",
+            "Water pollution",
+            "Soil pollution"
+          ],
+          "answer": "Noise pollution"
+        },
+        {
+          "id": 190,
+          "question": "Which gas is released by volcanic eruptions?",
+          "options": [
+            "Sulfur dioxide",
+            "Oxygen",
+            "Methane",
+            "Nitrogen"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 191,
+          "question": "Which pollutant causes global warming by trapping heat?",
+          "options": [
+            "Greenhouse gases",
+            "Oxygen",
+            "Helium",
+            "Hydrogen"
+          ],
+          "answer": "Greenhouse gases"
+        },
+        {
+          "id": 192,
+          "question": "Which is the largest source of freshwater for human use?",
+          "options": [
+            "Groundwater",
+            "Rivers",
+            "Lakes",
+            "Rainwater"
+          ],
+          "answer": "Groundwater"
+        },
+        {
+          "id": 193,
+          "question": "Which energy resource has zero carbon emissions?",
+          "options": [
+            "Solar",
+            "Coal",
+            "Petrol",
+            "Diesel"
+          ],
+          "answer": "Solar"
+        },
+        {
+          "id": 194,
+          "question": "Which country has the most electric vehicles?",
+          "options": [
+            "China",
+            "USA",
+            "Norway",
+            "Germany"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 195,
+          "question": "Which practice helps in water conservation at home?",
+          "options": [
+            "Fixing leaks",
+            "Overusing showers",
+            "Leaving taps open",
+            "Wasting water"
+          ],
+          "answer": "Fixing leaks"
+        },
+        {
+          "id": 196,
+          "question": "Which renewable energy is generated by moving air?",
+          "options": [
+            "Wind energy",
+            "Solar",
+            "Hydropower",
+            "Tidal"
+          ],
+          "answer": "Wind energy"
+        },
+        {
+          "id": 197,
+          "question": "Which gas is also known as 'laughing gas'?",
+          "options": [
+            "Nitrous oxide",
+            "Methane",
+            "Carbon dioxide",
+            "Oxygen"
+          ],
+          "answer": "Nitrous oxide"
+        },
+        {
+          "id": 198,
+          "question": "Which of these gases contributes the most to climate change?",
+          "options": [
+            "Carbon dioxide",
+            "Methane",
+            "Nitrous oxide",
+            "Oxygen"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 199,
+          "question": "Which pollutant causes blue baby syndrome?",
+          "options": [
+            "Nitrates in water",
+            "Lead",
+            "Mercury",
+            "Cadmium"
+          ],
+          "answer": "Nitrates in water"
+        },
+        {
+          "id": 200,
+          "question": "Which renewable energy uses underground steam for electricity?",
+          "options": [
+            "Geothermal energy",
+            "Solar",
+            "Wind",
+            "Hydropower"
+          ],
+          "answer": "Geothermal energy"
+        },
+        {
+          "id": 201,
+          "question": "Which international day is observed on September 5?",
+          "options": [
+            "International Day of Charity",
+            "World Ozone Day",
+            "Earth Day",
+            "World Water Day"
+          ],
+          "answer": "International Day of Charity"
+        },
+        {
+          "id": 202,
+          "question": "Which pollutant is responsible for smog formation?",
+          "options": [
+            "Nitrogen oxides and hydrocarbons",
+            "Oxygen",
+            "Helium",
+            "Hydrogen"
+          ],
+          "answer": "Nitrogen oxides and hydrocarbons"
+        },
+        {
+          "id": 203,
+          "question": "Which is the largest source of renewable electricity in the world?",
+          "options": [
+            "Hydropower",
+            "Solar",
+            "Wind",
+            "Geothermal"
+          ],
+          "answer": "Hydropower"
+        },
+        {
+          "id": 204,
+          "question": "Which natural disaster is measured using the Saffir-Simpson scale?",
+          "options": [
+            "Hurricanes",
+            "Earthquakes",
+            "Floods",
+            "Tsunamis"
+          ],
+          "answer": "Hurricanes"
+        },
+        {
+          "id": 205,
+          "question": "Which environmental movement in India started in Kerala to save forests?",
+          "options": [
+            "Silent Valley Movement",
+            "Chipko Movement",
+            "Narmada Bachao Andolan",
+            "Appiko Movement"
+          ],
+          "answer": "Silent Valley Movement"
+        },
+        {
+          "id": 206,
+          "question": "Which gas causes the greenhouse effect the most?",
+          "options": [
+            "Carbon dioxide",
+            "Methane",
+            "Nitrous oxide",
+            "Ozone"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 207,
+          "question": "Which city is called the 'Electronic Waste Capital of India'?",
+          "options": [
+            "Bengaluru",
+            "Delhi",
+            "Mumbai",
+            "Hyderabad"
+          ],
+          "answer": "Bengaluru"
+        },
+        {
+          "id": 208,
+          "question": "Which pollutant is commonly found in old paints and batteries?",
+          "options": [
+            "Lead",
+            "Mercury",
+            "Arsenic",
+            "Cadmium"
+          ],
+          "answer": "Lead"
+        },
+        {
+          "id": 209,
+          "question": "Which international agreement is focused on protecting the ozone layer?",
+          "options": [
+            "Montreal Protocol",
+            "Kyoto Protocol",
+            "Paris Agreement",
+            "Rio Declaration"
+          ],
+          "answer": "Montreal Protocol"
+        },
+        {
+          "id": 210,
+          "question": "Which country has the most forest area?",
+          "options": [
+            "Russia",
+            "Brazil",
+            "Canada",
+            "USA"
+          ],
+          "answer": "Russia"
+        }
+      ]
+    },
+    {
+      "level": "Expert Step 1",
+      "questions": [
+        {
+          "id": 211,
+          "question": "Which renewable energy is generated by ocean waves?",
+          "options": [
+            "Wave energy",
+            "Solar",
+            "Wind",
+            "Hydropower"
+          ],
+          "answer": "Wave energy"
+        },
+        {
+          "id": 212,
+          "question": "Which Indian festival causes significant water pollution due to immersion rituals?",
+          "options": [
+            "Ganesh Chaturthi",
+            "Diwali",
+            "Holi",
+            "Durga Puja"
+          ],
+          "answer": "Ganesh Chaturthi"
+        },
+        {
+          "id": 213,
+          "question": "Which greenhouse gas is released from paddy fields?",
+          "options": [
+            "Methane",
+            "Carbon dioxide",
+            "Nitrous oxide",
+            "Ozone"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 214,
+          "question": "Which practice helps in saving electricity at home?",
+          "options": [
+            "Switching off appliances when not in use",
+            "Keeping fans running",
+            "Overusing ACs",
+            "Leaving lights on"
+          ],
+          "answer": "Switching off appliances when not in use"
+        },
+        {
+          "id": 215,
+          "question": "Which of the following is a biodegradable waste?",
+          "options": [
+            "Food waste",
+            "Plastic",
+            "Glass",
+            "Metal"
+          ],
+          "answer": "Food waste"
+        },
+        {
+          "id": 216,
+          "question": "Which pollutant caused the Minamata disease in Japan?",
+          "options": [
+            "Mercury",
+            "Lead",
+            "Cadmium",
+            "Arsenic"
+          ],
+          "answer": "Mercury"
+        },
+        {
+          "id": 217,
+          "question": "Which is the largest source of renewable energy in India?",
+          "options": [
+            "Solar",
+            "Wind",
+            "Hydropower",
+            "Biomass"
+          ],
+          "answer": "Solar"
+        },
+        {
+          "id": 218,
+          "question": "Which forest in India is famous for tigers?",
+          "options": [
+            "Sundarbans",
+            "Gir Forest",
+            "Jim Corbett",
+            "Periyar"
+          ],
+          "answer": "Sundarbans"
+        },
+        {
+          "id": 219,
+          "question": "Which of the following is NOT a consequence of deforestation?",
+          "options": [
+            "Increase in biodiversity",
+            "Soil erosion",
+            "Loss of rainfall",
+            "Climate change"
+          ],
+          "answer": "Increase in biodiversity"
+        },
+        {
+          "id": 220,
+          "question": "Which gas is released in the highest quantity during volcanic eruptions?",
+          "options": [
+            "Water vapor",
+            "Carbon dioxide",
+            "Sulfur dioxide",
+            "Methane"
+          ],
+          "answer": "Water vapor"
+        },
+        {
+          "id": 221,
+          "question": "Which of the following is a fossil fuel?",
+          "options": [
+            "Petroleum",
+            "Solar",
+            "Wind",
+            "Hydropower"
+          ],
+          "answer": "Petroleum"
+        },
+        {
+          "id": 222,
+          "question": "Which layer of atmosphere is used for radio communication?",
+          "options": [
+            "Ionosphere",
+            "Troposphere",
+            "Stratosphere",
+            "Exosphere"
+          ],
+          "answer": "Ionosphere"
+        },
+        {
+          "id": 223,
+          "question": "Which country emits the highest carbon dioxide per capita?",
+          "options": [
+            "Qatar",
+            "USA",
+            "China",
+            "India"
+          ],
+          "answer": "Qatar"
+        },
+        {
+          "id": 224,
+          "question": "Which type of waste includes broken glass bottles?",
+          "options": [
+            "Dry waste",
+            "E-waste",
+            "Organic waste",
+            "Biomedical waste"
+          ],
+          "answer": "Dry waste"
+        },
+        {
+          "id": 225,
+          "question": "Which of the following is a soil conservation method?",
+          "options": [
+            "Terrace farming",
+            "Overgrazing",
+            "Deforestation",
+            "Burning stubble"
+          ],
+          "answer": "Terrace farming"
+        },
+        {
+          "id": 226,
+          "question": "Which renewable energy is used in solar cookers?",
+          "options": [
+            "Solar energy",
+            "Wind energy",
+            "Hydropower",
+            "Geothermal"
+          ],
+          "answer": "Solar energy"
+        },
+        {
+          "id": 227,
+          "question": "Which pollutant is most harmful for human lungs?",
+          "options": [
+            "PM2.5",
+            "Oxygen",
+            "Nitrogen",
+            "Helium"
+          ],
+          "answer": "PM2.5"
+        },
+        {
+          "id": 228,
+          "question": "Which of the following is a clean fuel for vehicles?",
+          "options": [
+            "CNG",
+            "Coal",
+            "Diesel",
+            "Kerosene"
+          ],
+          "answer": "CNG"
+        },
+        {
+          "id": 229,
+          "question": "Which animal is a key pollinator for many plants?",
+          "options": [
+            "Bees",
+            "Cows",
+            "Dogs",
+            "Sheep"
+          ],
+          "answer": "Bees"
+        },
+        {
+          "id": 230,
+          "question": "Which pollutant is associated with oil spills?",
+          "options": [
+            "Hydrocarbons",
+            "Sulfur dioxide",
+            "Carbon monoxide",
+            "Nitrogen oxides"
+          ],
+          "answer": "Hydrocarbons"
+        },
+        {
+          "id": 231,
+          "question": "Which city in India has the highest solid waste generation?",
+          "options": [
+            "Mumbai",
+            "Delhi",
+            "Kolkata",
+            "Bengaluru"
+          ],
+          "answer": "Mumbai"
+        },
+        {
+          "id": 232,
+          "question": "Which international day is celebrated on December 5?",
+          "options": [
+            "World Soil Day",
+            "World Water Day",
+            "Earth Day",
+            "Ozone Day"
+          ],
+          "answer": "World Soil Day"
+        },
+        {
+          "id": 233,
+          "question": "Which practice helps in reducing paper waste?",
+          "options": [
+            "Recycling",
+            "Deforestation",
+            "Burning",
+            "Dumping"
+          ],
+          "answer": "Recycling"
+        },
+        {
+          "id": 234,
+          "question": "Which of the following is NOT a non-renewable resource?",
+          "options": [
+            "Solar energy",
+            "Coal",
+            "Petroleum",
+            "Natural Gas"
+          ],
+          "answer": "Solar energy"
+        },
+        {
+          "id": 235,
+          "question": "Which country has the largest number of nuclear power plants?",
+          "options": [
+            "USA",
+            "France",
+            "Russia",
+            "China"
+          ],
+          "answer": "USA"
+        },
+        {
+          "id": 236,
+          "question": "Which pollutant is associated with respiratory diseases like asthma?",
+          "options": [
+            "Particulate matter",
+            "Oxygen",
+            "Nitrogen",
+            "Hydrogen"
+          ],
+          "answer": "Particulate matter"
+        },
+        {
+          "id": 237,
+          "question": "Which of the following is a method of water conservation?",
+          "options": [
+            "Rainwater harvesting",
+            "Over-irrigation",
+            "Deforestation",
+            "Urbanization"
+          ],
+          "answer": "Rainwater harvesting"
+        },
+        {
+          "id": 238,
+          "question": "Which renewable energy is generated from hot rocks beneath the Earth?",
+          "options": [
+            "Geothermal",
+            "Solar",
+            "Wind",
+            "Hydropower"
+          ],
+          "answer": "Geothermal"
+        },
+        {
+          "id": 239,
+          "question": "Which of the following gases causes photochemical smog?",
+          "options": [
+            "Ozone",
+            "Methane",
+            "Carbon dioxide",
+            "Nitrogen"
+          ],
+          "answer": "Ozone"
+        },
+        {
+          "id": 240,
+          "question": "Which Indian initiative promotes electric mobility?",
+          "options": [
+            "FAME India Scheme",
+            "Skill India",
+            "Digital India",
+            "Startup India"
+          ],
+          "answer": "FAME India Scheme"
+        }
+      ]
+    },
+    {
+      "level": "Expert Step 2",
+      "questions": [
+        {
+          "id": 241,
+          "question": "Which country has the highest installed wind power capacity?",
+          "options": [
+            "China",
+            "USA",
+            "India",
+            "Germany"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 242,
+          "question": "Which waste includes vegetable peels and garden waste?",
+          "options": [
+            "Organic waste",
+            "Plastic waste",
+            "E-waste",
+            "Dry waste"
+          ],
+          "answer": "Organic waste"
+        },
+        {
+          "id": 243,
+          "question": "Which pollutant was responsible for the London Smog of 1952?",
+          "options": [
+            "Sulfur dioxide",
+            "Carbon dioxide",
+            "Methane",
+            "Nitrous oxide"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 244,
+          "question": "Which of the following is a major source of indoor air pollution?",
+          "options": [
+            "Biomass burning",
+            "Car exhaust",
+            "Factories",
+            "Open burning"
+          ],
+          "answer": "Biomass burning"
+        },
+        {
+          "id": 245,
+          "question": "Which animal is considered a flagship species for wildlife conservation in India?",
+          "options": [
+            "Tiger",
+            "Elephant",
+            "Lion",
+            "Leopard"
+          ],
+          "answer": "Tiger"
+        },
+        {
+          "id": 246,
+          "question": "Which international day is observed on February 2?",
+          "options": [
+            "World Wetlands Day",
+            "Earth Day",
+            "World Water Day",
+            "World Wildlife Day"
+          ],
+          "answer": "World Wetlands Day"
+        },
+        {
+          "id": 247,
+          "question": "Which renewable energy is captured by solar panels?",
+          "options": [
+            "Solar energy",
+            "Wind energy",
+            "Hydropower",
+            "Geothermal"
+          ],
+          "answer": "Solar energy"
+        },
+        {
+          "id": 248,
+          "question": "Which of the following is a common greenhouse gas?",
+          "options": [
+            "Methane",
+            "Carbon dioxide",
+            "Nitrous oxide",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 249,
+          "question": "Which type of farming maintains ecological balance?",
+          "options": [
+            "Sustainable farming",
+            "Shifting cultivation",
+            "Mono-cropping",
+            "Deforestation"
+          ],
+          "answer": "Sustainable farming"
+        },
+        {
+          "id": 250,
+          "question": "Which pollutant is associated with photochemical smog and respiratory irritation?",
+          "options": [
+            "Ozone",
+            "Carbon monoxide",
+            "Sulfur dioxide",
+            "Methane"
+          ],
+          "answer": "Ozone"
+        },
+        {
+          "id": 251,
+          "question": "Which natural disaster is measured using the Richter scale?",
+          "options": [
+            "Earthquake",
+            "Flood",
+            "Cyclone",
+            "Tsunami"
+          ],
+          "answer": "Earthquake"
+        },
+        {
+          "id": 252,
+          "question": "Which pollutant is most responsible for acid rain?",
+          "options": [
+            "Sulfur dioxide",
+            "Carbon dioxide",
+            "Methane",
+            "Nitrogen"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 253,
+          "question": "Which Indian movement was led by Medha Patkar?",
+          "options": [
+            "Narmada Bachao Andolan",
+            "Chipko Movement",
+            "Silent Valley Movement",
+            "Green Revolution"
+          ],
+          "answer": "Narmada Bachao Andolan"
+        },
+        {
+          "id": 254,
+          "question": "Which of the following is NOT a greenhouse gas?",
+          "options": [
+            "Oxygen",
+            "Carbon dioxide",
+            "Methane",
+            "Nitrous oxide"
+          ],
+          "answer": "Oxygen"
+        },
+        {
+          "id": 255,
+          "question": "Which of these is an impact of global warming?",
+          "options": [
+            "Glacier melting",
+            "Sea level rise",
+            "Extreme weather events",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 256,
+          "question": "Which renewable energy is produced by wind turbines?",
+          "options": [
+            "Wind energy",
+            "Solar energy",
+            "Hydropower",
+            "Geothermal"
+          ],
+          "answer": "Wind energy"
+        },
+        {
+          "id": 257,
+          "question": "Which country has pledged to achieve net-zero emissions by 2060?",
+          "options": [
+            "China",
+            "USA",
+            "India",
+            "Japan"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 258,
+          "question": "Which pollutant is commonly associated with vehicle exhaust?",
+          "options": [
+            "Carbon monoxide",
+            "Oxygen",
+            "Methane",
+            "Nitrogen"
+          ],
+          "answer": "Carbon monoxide"
+        },
+        {
+          "id": 259,
+          "question": "Which international day is observed on June 17?",
+          "options": [
+            "World Day to Combat Desertification",
+            "Earth Day",
+            "World Ozone Day",
+            "World Water Day"
+          ],
+          "answer": "World Day to Combat Desertification"
+        },
+        {
+          "id": 260,
+          "question": "Which river is the longest in the world?",
+          "options": [
+            "Nile",
+            "Amazon",
+            "Yangtze",
+            "Mississippi"
+          ],
+          "answer": "Nile"
+        },
+        {
+          "id": 261,
+          "question": "Which pollutant caused the Chernobyl disaster?",
+          "options": [
+            "Radioactive isotopes",
+            "Sulfur dioxide",
+            "Carbon monoxide",
+            "Methane"
+          ],
+          "answer": "Radioactive isotopes"
+        },
+        {
+          "id": 262,
+          "question": "Which of these is a renewable source of energy?",
+          "options": [
+            "Biogas",
+            "Petroleum",
+            "Coal",
+            "Natural Gas"
+          ],
+          "answer": "Biogas"
+        },
+        {
+          "id": 263,
+          "question": "Which Indian state is famous for the Chipko Movement?",
+          "options": [
+            "Uttarakhand",
+            "Madhya Pradesh",
+            "Kerala",
+            "Rajasthan"
+          ],
+          "answer": "Uttarakhand"
+        },
+        {
+          "id": 264,
+          "question": "Which international day is celebrated on October 4?",
+          "options": [
+            "World Animal Day",
+            "Earth Day",
+            "World Forest Day",
+            "World Ozone Day"
+          ],
+          "answer": "World Animal Day"
+        },
+        {
+          "id": 265,
+          "question": "Which gas is released by anaerobic decomposition of organic matter?",
+          "options": [
+            "Methane",
+            "Oxygen",
+            "Nitrogen",
+            "Helium"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 266,
+          "question": "Which country is the largest emitter of greenhouse gases?",
+          "options": [
+            "China",
+            "USA",
+            "India",
+            "Russia"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 267,
+          "question": "Which energy is generated in nuclear power plants?",
+          "options": [
+            "Nuclear energy",
+            "Solar energy",
+            "Wind energy",
+            "Geothermal"
+          ],
+          "answer": "Nuclear energy"
+        },
+        {
+          "id": 268,
+          "question": "Which pollutant is most harmful for aquatic life?",
+          "options": [
+            "Oil spills",
+            "Oxygen",
+            "Carbon dioxide",
+            "Methane"
+          ],
+          "answer": "Oil spills"
+        },
+        {
+          "id": 269,
+          "question": "Which forest type is found in the Himalayan foothills?",
+          "options": [
+            "Temperate forest",
+            "Mangrove forest",
+            "Taiga forest",
+            "Desert vegetation"
+          ],
+          "answer": "Temperate forest"
+        },
+        {
+          "id": 270,
+          "question": "Which pollutant is found in automobile batteries?",
+          "options": [
+            "Lead",
+            "Mercury",
+            "Cadmium",
+            "Arsenic"
+          ],
+          "answer": "Lead"
+        }
+      ]
+    },
+    {
+      "level": "Mastery",
+      "questions": [
+        {
+          "id": 271,
+          "question": "Which Indian river is known as the 'Sorrow of Bihar'?",
+          "options": [
+            "Kosi",
+            "Ganga",
+            "Yamuna",
+            "Brahmaputra"
+          ],
+          "answer": "Kosi"
+        },
+        {
+          "id": 272,
+          "question": "Which greenhouse gas is released from wetlands?",
+          "options": [
+            "Methane",
+            "Carbon dioxide",
+            "Nitrous oxide",
+            "Ozone"
+          ],
+          "answer": "Methane"
+        },
+        {
+          "id": 273,
+          "question": "Which practice helps in reducing deforestation?",
+          "options": [
+            "Agroforestry",
+            "Mining",
+            "Urbanization",
+            "Industrialization"
+          ],
+          "answer": "Agroforestry"
+        },
+        {
+          "id": 274,
+          "question": "Which of the following is the largest hot desert?",
+          "options": [
+            "Sahara",
+            "Thar",
+            "Gobi",
+            "Kalahari"
+          ],
+          "answer": "Sahara"
+        },
+        {
+          "id": 275,
+          "question": "Which pollutant is the main cause of photochemical smog?",
+          "options": [
+            "Nitrogen oxides",
+            "Oxygen",
+            "Methane",
+            "Carbon dioxide"
+          ],
+          "answer": "Nitrogen oxides"
+        },
+        {
+          "id": 276,
+          "question": "Which country has the largest share of global forest cover?",
+          "options": [
+            "Russia",
+            "Brazil",
+            "Canada",
+            "USA"
+          ],
+          "answer": "Russia"
+        },
+        {
+          "id": 277,
+          "question": "Which practice helps in waste reduction?",
+          "options": [
+            "Recycling",
+            "Open dumping",
+            "Burning waste",
+            "Landfilling"
+          ],
+          "answer": "Recycling"
+        },
+        {
+          "id": 278,
+          "question": "Which pollutant is released by burning coal?",
+          "options": [
+            "Sulfur dioxide",
+            "Oxygen",
+            "Methane",
+            "Nitrogen"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 279,
+          "question": "Which international day is celebrated on November 6?",
+          "options": [
+            "International Day for Preventing Exploitation of the Environment in War",
+            "Earth Day",
+            "World Water Day",
+            "World Wildlife Day"
+          ],
+          "answer": "International Day for Preventing Exploitation of the Environment in War"
+        },
+        {
+          "id": 280,
+          "question": "Which animal is considered the largest land mammal?",
+          "options": [
+            "Elephant",
+            "Giraffe",
+            "Hippopotamus",
+            "Rhinoceros"
+          ],
+          "answer": "Elephant"
+        },
+        {
+          "id": 281,
+          "question": "Which of these is the major cause of marine plastic pollution?",
+          "options": [
+            "Single-use plastics",
+            "Fishing nets",
+            "Industrial waste",
+            "Oil spills"
+          ],
+          "answer": "Single-use plastics"
+        },
+        {
+          "id": 282,
+          "question": "Which country has the Great Barrier Reef?",
+          "options": [
+            "Australia",
+            "India",
+            "Brazil",
+            "Indonesia"
+          ],
+          "answer": "Australia"
+        },
+        {
+          "id": 283,
+          "question": "Which pollutant is responsible for respiratory diseases like bronchitis?",
+          "options": [
+            "Particulate matter",
+            "Oxygen",
+            "Nitrogen",
+            "Methane"
+          ],
+          "answer": "Particulate matter"
+        },
+        {
+          "id": 284,
+          "question": "Which renewable energy is obtained from ocean tides?",
+          "options": [
+            "Tidal energy",
+            "Solar energy",
+            "Wind energy",
+            "Geothermal energy"
+          ],
+          "answer": "Tidal energy"
+        },
+        {
+          "id": 285,
+          "question": "Which international organization releases the 'Emissions Gap Report'?",
+          "options": [
+            "UNEP",
+            "IPCC",
+            "WHO",
+            "FAO"
+          ],
+          "answer": "UNEP"
+        },
+        {
+          "id": 286,
+          "question": "Which gas is essential for photosynthesis in plants?",
+          "options": [
+            "Carbon dioxide",
+            "Oxygen",
+            "Methane",
+            "Nitrogen"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 287,
+          "question": "Which pollutant is linked with skin cancer due to ozone depletion?",
+          "options": [
+            "UV radiation",
+            "Methane",
+            "Carbon dioxide",
+            "Oxygen"
+          ],
+          "answer": "UV radiation"
+        },
+        {
+          "id": 288,
+          "question": "Which international day is celebrated on July 11?",
+          "options": [
+            "World Population Day",
+            "Earth Day",
+            "World Water Day",
+            "World Forestry Day"
+          ],
+          "answer": "World Population Day"
+        },
+        {
+          "id": 289,
+          "question": "Which practice helps in sustainable fishing?",
+          "options": [
+            "Catch limits",
+            "Overfishing",
+            "Bottom trawling",
+            "Dynamite fishing"
+          ],
+          "answer": "Catch limits"
+        },
+        {
+          "id": 290,
+          "question": "Which pollutant is associated with e-waste?",
+          "options": [
+            "Lead and mercury",
+            "Oxygen",
+            "Nitrogen",
+            "Methane"
+          ],
+          "answer": "Lead and mercury"
+        },
+        {
+          "id": 291,
+          "question": "Which is the second most abundant gas in Earth's atmosphere?",
+          "options": [
+            "Oxygen",
+            "Nitrogen",
+            "Carbon dioxide",
+            "Argon"
+          ],
+          "answer": "Oxygen"
+        },
+        {
+          "id": 292,
+          "question": "Which practice reduces carbon footprint?",
+          "options": [
+            "Using public transport",
+            "Driving alone",
+            "Deforestation",
+            "Burning fossil fuels"
+          ],
+          "answer": "Using public transport"
+        },
+        {
+          "id": 293,
+          "question": "Which pollutant is commonly found in thermal power plant emissions?",
+          "options": [
+            "Sulfur dioxide",
+            "Oxygen",
+            "Methane",
+            "Helium"
+          ],
+          "answer": "Sulfur dioxide"
+        },
+        {
+          "id": 294,
+          "question": "Which of these is the main cause of biodiversity loss?",
+          "options": [
+            "Deforestation",
+            "Pollution",
+            "Overexploitation",
+            "All of the above"
+          ],
+          "answer": "All of the above"
+        },
+        {
+          "id": 295,
+          "question": "Which renewable energy is stored in batteries from sunlight?",
+          "options": [
+            "Solar energy",
+            "Wind energy",
+            "Tidal energy",
+            "Geothermal"
+          ],
+          "answer": "Solar energy"
+        },
+        {
+          "id": 296,
+          "question": "Which pollutant is responsible for global warming due to fossil fuel burning?",
+          "options": [
+            "Carbon dioxide",
+            "Methane",
+            "Nitrous oxide",
+            "Ozone"
+          ],
+          "answer": "Carbon dioxide"
+        },
+        {
+          "id": 297,
+          "question": "Which international day is celebrated on October 13?",
+          "options": [
+            "International Day for Disaster Risk Reduction",
+            "Earth Day",
+            "World Ozone Day",
+            "World Population Day"
+          ],
+          "answer": "International Day for Disaster Risk Reduction"
+        },
+        {
+          "id": 298,
+          "question": "Which country has the largest hydropower capacity?",
+          "options": [
+            "China",
+            "USA",
+            "Brazil",
+            "India"
+          ],
+          "answer": "China"
+        },
+        {
+          "id": 299,
+          "question": "Which pollutant is measured in terms of AQI?",
+          "options": [
+            "Air pollutants",
+            "Water pollutants",
+            "Noise levels",
+            "Radioactive waste"
+          ],
+          "answer": "Air pollutants"
+        },
+        {
+          "id": 300,
+          "question": "Which of these is an example of a non-renewable resource?",
+          "options": [
+            "Coal",
+            "Solar energy",
+            "Wind",
+            "Hydropower"
+          ],
+          "answer": "Coal"
+        }
+      ]
+    }
+  ]
+}
