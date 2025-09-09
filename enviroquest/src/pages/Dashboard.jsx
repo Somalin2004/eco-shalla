@@ -1,171 +1,167 @@
-// src/pages/Dashboard.jsx
 import React, { useEffect, useState } from "react";
 import {
-  Box, Heading, Button, VStack, SimpleGrid, useToast, 
-  HStack, Spacer, Text, useDisclosure, AlertDialog,
-  AlertDialogBody, AlertDialogFooter, AlertDialogHeader,
-  AlertDialogContent, AlertDialogOverlay, Flex, Card, CardBody
+  Box, Heading, VStack, Text, Card, CardBody,
+  Flex, Spinner, Badge, SimpleGrid, Progress, Avatar, HStack, Divider
 } from "@chakra-ui/react";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { motion } from "framer-motion";
+
+const MotionCard = motion(Card);
 
 export default function Dashboard() {
-  const [problems, setProblems] = useState([]);
+  const { user } = useAuth();
+  const [quizResults, setQuizResults] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [problemToDelete, setProblemToDelete] = useState(null);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const cancelRef = React.useRef();
-  const toast = useToast();
-  const { logout, user } = useAuth();
-  const navigate = useNavigate();
 
-  const loadProblems = async () => {
-    try {
-      const snap = await getDocs(collection(db, "problems"));
-      setProblems(snap.docs.map(d => ({ id: d.id, ...d.data() })));
-    } catch (error) {
-      console.error("Error loading problems:", error);
-      toast({ 
-        status: "error", 
-        title: "Failed to load problems", 
-        description: error.message,
-        duration: 5000
-      });
-    } finally {
-      setLoading(false);
+  useEffect(() => {
+    async function loadUserData() {
+      if (!user) return;
+      try {
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+          setQuizResults(userSnap.data().quizResults || []);
+        }
+      } catch (error) {
+        console.error("Error loading user data:", error);
+      } finally {
+        setLoading(false);
+      }
     }
-  };
+    loadUserData();
+  }, [user]);
 
-  useEffect(() => { 
-    loadProblems(); 
-  }, []);
+  if (loading) {
+    return (
+      <Flex align="center" justify="center" minH="200px">
+        <Spinner size="xl" color="teal.500" />
+      </Flex>
+    );
+  }
 
-  const handleDeleteClick = (problem) => {
-    setProblemToDelete(problem);
-    onOpen();
-  };
+  // --- Stats Calculations ---
+  const totalCompleted = quizResults.length;
+  const avgScore = totalCompleted > 0
+    ? Math.round((quizResults.reduce((acc, r) => acc + (r.score / r.total), 0) / totalCompleted) * 100)
+    : 0;
+  const highestScore = totalCompleted > 0 ? Math.max(...quizResults.map(r => r.score / r.total)) * 100 : 0;
+  const lowestScore = totalCompleted > 0 ? Math.min(...quizResults.map(r => r.score / r.total)) * 100 : 0;
+  const totalQuestions = quizResults.reduce((acc, r) => acc + r.total, 0);
+  const correctAnswers = quizResults.reduce((acc, r) => acc + r.score, 0);
+  const accuracy = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
 
-  const handleDeleteConfirm = async () => {
-    if (!problemToDelete) return;
-    
-    try {
-      await deleteDoc(doc(db, "problems", problemToDelete.id));
-      toast({ 
-        status: "success", 
-        title: "Problem deleted successfully",
-        duration: 3000
-      });
-      loadProblems(); // Reload the list
-    } catch (error) {
-      console.error("Delete error:", error);
-      toast({ 
-        status: "error", 
-        title: "Failed to delete problem", 
-        description: error.message,
-        duration: 5000
-      });
-    } finally {
-      onClose();
-      setProblemToDelete(null);
-    }
-  };
+  // --- Streak Calculation ---
+  const dates = quizResults.map(r => new Date(r.date).toDateString());
+  const uniqueDays = [...new Set(dates)];
+  const streak = uniqueDays.length;
 
   return (
-    <Box p={6} maxW="7xl" mx="auto">
-      <HStack mb={8} align="center">
-        <Heading color="teal.700">Dashboard</Heading>
-        <Spacer />
-        <Text color="gray.600">Welcome, {user?.email}</Text>
-        <Button colorScheme="teal" as={RouterLink} to="/create">
-          Create New
-        </Button>
-        <Button colorScheme="gray" onClick={() => { logout(); navigate("/"); }}>
-          Sign out
-        </Button>
-      </HStack>
+    <Box maxW="1000px" mx="auto" p={6}>
+      {/* User Profile */}
+      <Card mb={8}>
+        <CardBody>
+          <Flex align="center" gap={4}>
+            <Avatar name={user?.displayName || "User"} src={user?.photoURL} size="xl" />
+            <Box>
+              <Heading size="md">{user?.displayName || "Anonymous User"}</Heading>
+              <Text color="gray.600">{user?.email}</Text>
+              <Text fontSize="sm" color="gray.500">
+                Member since {user?.metadata?.creationTime
+                  ? new Date(user.metadata.creationTime).toLocaleDateString()
+                  : "N/A"}
+              </Text>
+            </Box>
+          </Flex>
+        </CardBody>
+      </Card>
 
-      {loading ? (
-        <Flex justify="center" py={10}>
-          <Text>Loading problems...</Text>
-        </Flex>
-      ) : problems.length === 0 ? (
-        <Box textAlign="center" py={10} bg="white" borderRadius="lg" boxShadow="sm">
-          <Heading size="md" mb={4} color="gray.600">No problems yet</Heading>
-          <Text mb={6}>Create your first problem statement to get started</Text>
-          <Button as={RouterLink} to="/create" colorScheme="teal">
-            Create Problem
-          </Button>
-        </Box>
-      ) : (
-        <>
-          <Heading size="md" mb={4} color="gray.600">
-            Your Problem Statements ({problems.length})
-          </Heading>
-          <SimpleGrid columns={[1, 2, 3]} spacing={5}>
-            {problems.map(problem => (
-              <Card key={problem.id} variant="outlined" boxShadow="md" _hover={{ boxShadow: "lg" }}>
-                <CardBody>
-                  <Heading size="sm" mb={2} noOfLines={1}>
-                    {problem.title || problem["Problem Statement Title"] || "Untitled"}
-                  </Heading>
-                  <Text fontSize="sm" color="gray.600" noOfLines={2} mb={4}>
-                    {problem.description || problem["Description"] || "No description available"}
-                  </Text>
-                  <VStack align="start" spacing={2}>
-                    <Button 
-                      size="sm" 
-                      as={RouterLink} 
-                      to={`/problem/${problem.id}`} 
-                      colorScheme="teal"
-                      width="100%"
-                    >
-                      View Details
-                    </Button>
-                    <Button 
-                      size="sm" 
-                      variant="outline" 
-                      onClick={() => handleDeleteClick(problem)}
-                      width="100%"
-                    >
-                      Delete
-                    </Button>
-                  </VStack>
-                </CardBody>
-              </Card>
-            ))}
+      {/* Overall Stats */}
+      <Card mb={8}>
+        <CardBody>
+          <Heading size="md" mb={4}>Your Progress Overview</Heading>
+          <SimpleGrid columns={[1, 2, 3]} spacing={6}>
+            <Box>
+              <Text fontWeight="bold" mb={2}>Total Quizzes Completed</Text>
+              <Text fontSize="2xl" color="teal.600">{totalCompleted}</Text>
+            </Box>
+            <Box>
+              <Text fontWeight="bold" mb={2}>Average Score</Text>
+              <Text fontSize="2xl" color="teal.600">{avgScore}%</Text>
+            </Box>
+            <Box>
+              <Text fontWeight="bold" mb={2}>Accuracy</Text>
+              <Text fontSize="2xl" color="teal.600">{accuracy}%</Text>
+            </Box>
+            <Box>
+              <Text fontWeight="bold" mb={2}>Highest Score</Text>
+              <Text fontSize="2xl" color="green.500">{highestScore.toFixed(0)}%</Text>
+            </Box>
+            <Box>
+              <Text fontWeight="bold" mb={2}>Lowest Score</Text>
+              <Text fontSize="2xl" color="red.500">{lowestScore.toFixed(0)}%</Text>
+            </Box>
+            <Box>
+              <Text fontWeight="bold" mb={2}>Active Days</Text>
+              <Text fontSize="2xl" color="purple.500">{streak}</Text>
+            </Box>
           </SimpleGrid>
-        </>
-      )}
+        </CardBody>
+      </Card>
 
-      <AlertDialog
-        isOpen={isOpen}
-        leastDestructiveRef={cancelRef}
-        onClose={onClose}
-      >
-        <AlertDialogOverlay>
-          <AlertDialogContent>
-            <AlertDialogHeader fontSize="lg" fontWeight="bold">
-              Delete Problem
-            </AlertDialogHeader>
+      {/* Achievements */}
+      <Card mb={8}>
+        <CardBody>
+          <Heading size="md" mb={4}>Achievements</Heading>
+          <HStack spacing={4} wrap="wrap">
+            {totalCompleted > 0 && <Badge colorScheme="teal">🎉 First Quiz Completed</Badge>}
+            {avgScore >= 90 && <Badge colorScheme="yellow">🏆 High Scorer</Badge>}
+            {totalCompleted >= 5 && <Badge colorScheme="purple">🔥 5 Quizzes Completed</Badge>}
+            {streak >= 3 && <Badge colorScheme="red">📅 3-Day Streak</Badge>}
+            {accuracy === 100 && <Badge colorScheme="green">Perfect Accuracy</Badge>}
+            {totalCompleted === 0 && <Text color="gray.500">No achievements yet. Keep going!</Text>}
+          </HStack>
+        </CardBody>
+      </Card>
 
-            <AlertDialogBody>
-              Are you sure you want to delete "{problemToDelete?.title || problemToDelete?.["Problem Statement Title"]}"? 
-              This action cannot be undone.
-            </AlertDialogBody>
-
-            <AlertDialogFooter>
-              <Button ref={cancelRef} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme="red" onClick={handleDeleteConfirm} ml={3}>
-                Delete
-              </Button>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialogOverlay>
-      </AlertDialog>
+      {/* Recent Results */}
+      <Heading size="md" mb={4}>Recent Quiz Results</Heading>
+      <VStack spacing={6} align="stretch">
+        {quizResults.slice().reverse().map((result, i) => (
+          <MotionCard
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+          >
+            <CardBody>
+              <Flex justify="space-between" align="center" wrap="wrap" gap={4}>
+                <Box>
+                  <Heading size="sm">{result.quizName}</Heading>
+                  <Text fontSize="sm" color="gray.600">
+                    {new Date(result.date).toLocaleDateString()}
+                  </Text>
+                </Box>
+                <Box flex="1">
+                  <Text fontWeight="bold" mb={2}>
+                    {result.score}/{result.total} ({Math.round((result.score / result.total) * 100)}%)
+                  </Text>
+                  <Progress
+                    value={(result.score / result.total) * 100}
+                    colorScheme={result.score / result.total >= 0.7 ? "green" : "orange"}
+                    size="sm"
+                  />
+                </Box>
+                <Badge colorScheme={result.score / result.total >= 0.7 ? "green" : "orange"}>
+                  {result.score / result.total >= 0.9 ? "Excellent" :
+                    result.score / result.total >= 0.7 ? "Good" : "Practice More"}
+                </Badge>
+              </Flex>
+            </CardBody>
+          </MotionCard>
+        ))}
+      </VStack>
     </Box>
   );
 }
