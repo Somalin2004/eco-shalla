@@ -1,94 +1,99 @@
 import React, { useEffect, useState } from "react";
 import {
-  Box, Heading, VStack, SimpleGrid, Text, Button,
-  Flex, Card, CardBody, Spinner, Badge, Progress,
-  Icon, useColorModeValue, HStack, Tooltip,
-  Alert, AlertIcon, Input, InputGroup, InputLeftElement,
-  Select, IconButton
+  Box,
+  Heading,
+  VStack,
+  SimpleGrid,
+  Text,
+  Button,
+  Flex,
+  Card,
+  CardBody,
+  Spinner,
+  Badge,
+  Icon,
+  HStack,
+  Alert,
+  AlertIcon,
+  Input,
+  Select,
+  useColorModeValue,
+  ScaleFade,
 } from "@chakra-ui/react";
-import { collection, getDocs, orderBy, query, doc, getDoc } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link as RouterLink } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
-import {
-  FaSearch, FaTrophy, FaClock, FaChartLine,
-  FaStar, FaBookOpen, FaFilter, FaRedo
-} from "react-icons/fa";
-
-const MotionCard = motion(Card);
-const MotionBox = motion(Box);
+import { FaClock, FaTrophy, FaChartLine, FaStar } from "react-icons/fa";
 
 export default function Quizzes() {
-  const [quizSections, setQuizSections] = useState([]);
+  const [quizzes, setQuizzes] = useState([]);
   const [filteredQuizzes, setFilteredQuizzes] = useState([]);
   const [userResults, setUserResults] = useState([]);
   const [userStats, setUserStats] = useState({
     totalQuizzes: 0,
     completedQuizzes: 0,
     averageScore: 0,
-    totalPoints: 0
+    totalPoints: 0,
   });
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("all");
-  const [sortBy, setSortBy] = useState("level");
   const { user } = useAuth();
 
-  // Color mode values
-  const bgGradient = useColorModeValue(
-    "linear(to-br, teal.50, blue.50, green.50)",
-    "linear(to-br, gray.900, teal.900, blue.900)"
-  );
   const cardBg = useColorModeValue("white", "gray.800");
-  const textColor = useColorModeValue("gray.700", "gray.200");
+  const textColor = useColorModeValue("gray.800", "gray.200");
+  const badgeColor = useColorModeValue("teal.400", "teal.300");
+  const gridBg = useColorModeValue("blue.50", "teal.900");
 
   useEffect(() => {
     async function loadData() {
       try {
         setLoading(true);
-        
-        // Load all quiz sections with enhanced data
-        const quizQuery = query(
-          collection(db, "quiz_sections"), 
-          orderBy(sortBy === "level" ? "level" : "createdAt", "asc")
-        );
-        const snap = await getDocs(quizQuery);
-        const quizzes = snap.docs.map((d) => ({
-          id: d.id,
-          ...d.data(),
-          difficulty: d.data().difficulty || "Medium",
-          estimatedTime: d.data().estimatedTime || 10,
-          category: d.data().category || "General"
-        }));
+        const quizCollection = collection(db, "quiz_sections");
+        const quizSnapshot = await getDocs(quizCollection);
+        const quizData = quizSnapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            level: data.level || data.title || `Quiz ${doc.id}`,
+            difficulty: data.difficulty || "",
+            estimatedTime: data.estimatedTime || 10,
+            category: data.category || "",
+            questions: data.questions || [],
+            description: data.description || "",
+          };
+        });
 
-        // Load user quiz results and calculate stats
         let results = [];
         let stats = {
-          totalQuizzes: quizzes.length,
+          totalQuizzes: quizData.length,
           completedQuizzes: 0,
           averageScore: 0,
-          totalPoints: 0
+          totalPoints: 0,
         };
-
         if (user) {
           const userRef = doc(db, "users", user.uid);
           const userSnap = await getDoc(userRef);
-          if (userSnap.exists() && userSnap.data().quizResults) {
-            results = userSnap.data().quizResults;
-            
-            // Calculate user statistics
+          if (userSnap.exists()) {
+            const userData = userSnap.data();
+            results = userData.quizResults || [];
             stats.completedQuizzes = results.length;
             if (results.length > 0) {
-              const totalScore = results.reduce((sum, result) => sum + (result.score || 0), 0);
-              stats.averageScore = Math.round(totalScore / results.length);
-              stats.totalPoints = results.reduce((sum, result) => sum + (result.points || 0), 0);
+              const totalPercentage = results.reduce(
+                (sum, result) => sum + (result.percentage || 0),
+                0
+              );
+              stats.averageScore = Math.round(totalPercentage / results.length);
+              stats.totalPoints = results.reduce(
+                (sum, result) => sum + (result.score || 0),
+                0
+              );
             }
           }
         }
-
-        setQuizSections(quizzes);
-        setFilteredQuizzes(quizzes);
+        setQuizzes(quizData);
+        setFilteredQuizzes(quizData);
         setUserResults(results);
         setUserStats(stats);
       } catch (error) {
@@ -98,353 +103,209 @@ export default function Quizzes() {
       }
     }
     loadData();
-  }, [user, sortBy]);
+  }, [user]);
 
-  // Filter and search functionality
   useEffect(() => {
-    let filtered = quizSections.filter(quiz => {
-      const matchesSearch = quiz.level.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (quiz.category && quiz.category.toLowerCase().includes(searchTerm.toLowerCase()));
-      
-      if (filterStatus === "all") return matchesSearch;
-      
-      const isSolved = userResults.some(r => r.quizId === quiz.id);
-      if (filterStatus === "completed") return matchesSearch && isSolved;
-      if (filterStatus === "pending") return matchesSearch && !isSolved;
-      
-      return matchesSearch;
-    });
-
-    // Sort filtered results
-    if (sortBy === "difficulty") {
-      const difficultyOrder = { "Easy": 1, "Medium": 2, "Hard": 3 };
-      filtered.sort((a, b) => difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty]);
+    let filtered = quizzes;
+    if (searchTerm) {
+      filtered = filtered.filter(
+        (quiz) =>
+          quiz.level.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          quiz.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    if (filterStatus !== "all") {
+      filtered = filtered.filter((quiz) => {
+        const isCompleted = userResults.some((result) => result.quizId === quiz.id);
+        return filterStatus === "completed" ? isCompleted : !isCompleted;
+      });
     }
 
+    // Sort by custom level order
+    const levelOrder = {
+      beginner: 1,
+      intermediate: 2,
+      advanced: 3,
+      expert: 4,
+      mastery: 5,
+    };
+
+    filtered = filtered.sort(
+      (a, b) =>
+        (levelOrder[a.level.toLowerCase()] || 99) - (levelOrder[b.level.toLowerCase()] || 99)
+    );
+
     setFilteredQuizzes(filtered);
-  }, [searchTerm, filterStatus, sortBy, quizSections, userResults]);
+  }, [searchTerm, filterStatus, quizzes, userResults]);
 
   const getDifficultyColor = (difficulty) => {
-    switch (difficulty) {
-      case "Easy": return "green";
-      case "Medium": return "yellow";
-      case "Hard": return "red";
-      default: return "blue";
+    switch (difficulty.toLowerCase()) {
+      case "easy":
+        return "green";
+      case "medium":
+        return "yellow";
+      case "hard":
+        return "red";
+      default:
+        return "blue";
     }
   };
 
   const getUserResult = (quizId) => {
-    return userResults.find(r => r.quizId === quizId);
+    return userResults.find((result) => result.quizId === quizId);
   };
 
   const getProgressPercentage = () => {
-    return userStats.totalQuizzes > 0 
-      ? Math.round((userStats.completedQuizzes / userStats.totalQuizzes) * 100) 
+    return userStats.totalQuizzes > 0
+      ? Math.round((userStats.completedQuizzes / userStats.totalQuizzes) * 100)
       : 0;
   };
 
   if (loading) {
     return (
-      <Flex justify="center" align="center" minH="60vh">
-        <VStack spacing={4}>
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          >
-            <Spinner size="xl" color="teal.500" thickness="4px" />
-          </motion.div>
-          <Text color={textColor}>Loading your quizzes...</Text>
-        </VStack>
+      <Flex align="center" justify="center" minH="60vh">
+        <Spinner size="xl" /> <Text ml={4}>Loading quizzes...</Text>
       </Flex>
     );
   }
 
   return (
-    <Box
-      minH="100vh"
-      bgGradient={bgGradient}
-      py={8}
-    >
-      <Box maxW="7xl" mx="auto" px={6}>
-        {/* Header Section */}
-        <MotionBox
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          mb={8}
+    <Box minH="100vh" bg={gridBg} p={[2, 6]}>
+      {/* Header */}
+      <Heading
+        lineHeight={1.1}
+        fontWeight={900}
+        textAlign="center"
+        bgGradient="linear(to-r, teal.400, blue.400)"
+        bgClip="text"
+        fontSize={["2xl", "4xl"]}
+        mt={4}
+      >
+        🌱 Environmental Quizzes
+      </Heading>
+      <Text mb={4} textAlign="center" color={textColor} fontSize={{ base: "md", md: "lg" }}>
+        Test your knowledge on environmental issues and solutions!
+      </Text>
+      {/* User Stats */}
+      {user && (
+        <HStack bg={cardBg} shadow="sm" p={3} borderRadius="lg" justify="center" mb={6}>
+          <Badge fontSize="md" colorScheme="green">
+            <FaTrophy /> {userStats.completedQuizzes} Completed
+          </Badge>
+          <Badge fontSize="md" colorScheme="teal">
+            <FaChartLine /> {userStats.averageScore}% Avg Score
+          </Badge>
+          <Badge fontSize="md" colorScheme="yellow">
+            <FaStar /> {userStats.totalPoints} Total Points
+          </Badge>
+          <Badge fontSize="md" colorScheme="blue">
+            {getProgressPercentage()}% Progress
+          </Badge>
+        </HStack>
+      )}
+
+      {/* Filters */}
+      <Flex mb={4} gap={2} align="center" flexWrap="wrap" justify="center">
+        <Input
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search quizzes..."
+          maxW="300px"
+          bg={cardBg}
+          borderColor={badgeColor}
+          focusBorderColor="teal.400"
+        />
+        <Select
+          value={filterStatus}
+          onChange={(e) => setFilterStatus(e.target.value)}
+          maxW="200px"
+          bg={cardBg}
         >
-          <VStack spacing={6} align="stretch">
-            <Heading 
-              size="2xl" 
-              textAlign="center" 
-              bgGradient="linear(to-r, teal.400, blue.500, green.400)"
-              bgClip="text"
-              fontWeight="extrabold"
-            >
-              🌱 Environmental Quizzes
-            </Heading>
-            <Text 
-              textAlign="center" 
-              color={textColor} 
-              fontSize="lg" 
-              maxW="2xl" 
-              mx="auto"
-            >
-              Test your knowledge on environmental issues and solutions. Progress through levels and earn badges!
-            </Text>
-          </VStack>
-        </MotionBox>
+          <option value="all">All Quizzes</option>
+          <option value="completed">Completed</option>
+          <option value="notCompleted">Not Completed</option>
+        </Select>
+      </Flex>
 
-        {/* User Stats Section */}
-        {user && (
-          <MotionBox
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            mb={8}
-          >
-            <Card bg={cardBg} boxShadow="lg" borderRadius="xl">
-              <CardBody>
-                <VStack spacing={4}>
-                  <HStack spacing={8} justify="center" wrap="wrap">
-                    <VStack spacing={1}>
-                      <Icon as={FaTrophy} color="gold" boxSize={6} />
-                      <Text fontWeight="bold" fontSize="2xl">{userStats.completedQuizzes}</Text>
-                      <Text fontSize="sm" color={textColor}>Completed</Text>
-                    </VStack>
-                    <VStack spacing={1}>
-                      <Icon as={FaChartLine} color="teal.500" boxSize={6} />
-                      <Text fontWeight="bold" fontSize="2xl">{userStats.averageScore}%</Text>
-                      <Text fontSize="sm" color={textColor}>Avg Score</Text>
-                    </VStack>
-                    <VStack spacing={1}>
-                      <Icon as={FaStar} color="purple.500" boxSize={6} />
-                      <Text fontWeight="bold" fontSize="2xl">{userStats.totalPoints}</Text>
-                      <Text fontSize="sm" color={textColor}>Total Points</Text>
-                    </VStack>
-                  </HStack>
-                  
-                  <Box w="100%">
-                    <Flex justify="space-between" mb={2}>
-                      <Text fontSize="sm" fontWeight="medium">Progress</Text>
-                      <Text fontSize="sm" color={textColor}>{getProgressPercentage()}%</Text>
-                    </Flex>
-                    <Progress 
-                      value={getProgressPercentage()} 
-                      colorScheme="teal" 
-                      size="lg" 
-                      borderRadius="full"
-                      bg="gray.200"
-                    />
-                  </Box>
-                </VStack>
-              </CardBody>
-            </Card>
-          </MotionBox>
-        )}
-
-        {/* Filters and Search */}
-        <MotionBox
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          mb={8}
-        >
-          <Card bg={cardBg} boxShadow="md" borderRadius="xl">
-            <CardBody>
-              <Flex direction={["column", "row"]} gap={4} align={["stretch", "center"]}>
-                <InputGroup flex={1}>
-                  <InputLeftElement>
-                    <Icon as={FaSearch} color="gray.400" />
-                  </InputLeftElement>
-                  <Input
-                    placeholder="Search quizzes..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    borderRadius="lg"
-                  />
-                </InputGroup>
-                
-                <Select
-                  value={filterStatus}
-                  onChange={(e) => setFilterStatus(e.target.value)}
-                  maxW={["full", "200px"]}
-                  borderRadius="lg"
+      {/* Quiz Cards Grid */}
+      {filteredQuizzes.length === 0 ? (
+        <Box textAlign="center" my={10} p={6} rounded="md" bg={cardBg} shadow="md">
+          <Heading size="md" mb={2}>
+            No quizzes found
+          </Heading>
+          <Text>{quizzes.length === 0 ? "No quizzes available yet" : "Try adjusting your search or filters!"}</Text>
+        </Box>
+      ) : (
+        <SimpleGrid columns={[1, 2, 3]} spacing={8} mt={4}>
+          {filteredQuizzes.map((quiz, idx) => {
+            const userResult = getUserResult(quiz.id);
+            const isCompleted = !!userResult;
+            return (
+              <ScaleFade in={true} initialScale={0.8} key={quiz.id}>
+                <Card
+                  bg={cardBg}
+                  shadow="xl"
+                  borderRadius="2xl"
+                  borderWidth={2}
+                  borderColor={isCompleted ? "green.400" : "teal.200"}
+                  transition="all 0.3s"
+                  _hover={{
+                    borderColor: "blue.400",
+                    transform: "scale(1.04) rotate(-2deg)",
+                    shadow: "2xl",
+                  }}
+                  minH="280px"
                 >
-                  <option value="all">All Quizzes</option>
-                  <option value="pending">Pending</option>
-                  <option value="completed">Completed</option>
-                </Select>
-                
-                <Select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  maxW={["full", "200px"]}
-                  borderRadius="lg"
-                >
-                  <option value="level">Sort by Level</option>
-                  <option value="difficulty">Sort by Difficulty</option>
-                  <option value="createdAt">Sort by Date</option>
-                </Select>
-
-                <Tooltip label="Reset filters">
-                  <IconButton
-                    icon={<FaRedo />}
-                    onClick={() => {
-                      setSearchTerm("");
-                      setFilterStatus("all");
-                      setSortBy("level");
-                    }}
-                    colorScheme="teal"
-                    variant="outline"
-                    borderRadius="lg"
-                  />
-                </Tooltip>
-              </Flex>
-            </CardBody>
-          </Card>
-        </MotionBox>
-
-        {/* Quiz Cards */}
-        <AnimatePresence>
-          {filteredQuizzes.length === 0 ? (
-            <MotionBox
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Alert status="info" borderRadius="xl" bg={cardBg} boxShadow="md">
-                <AlertIcon />
-                <Box>
-                  <Text fontWeight="medium">
-                    {quizSections.length === 0 
-                      ? "No quizzes available yet" 
-                      : "No quizzes match your current filters"
-                    }
-                  </Text>
-                  <Text fontSize="sm" color={textColor} mt={1}>
-                    {quizSections.length === 0 
-                      ? "Check back later for environmental quizzes" 
-                      : "Try adjusting your search or filters"
-                    }
-                  </Text>
-                </Box>
-              </Alert>
-            </MotionBox>
-          ) : (
-            <SimpleGrid columns={[1, 2, 3]} spacing={6}>
-              {filteredQuizzes.map((quiz, i) => {
-                const userResult = getUserResult(quiz.id);
-                const isSolved = !!userResult;
-                
-                return (
-                  <MotionCard
-                    key={quiz.id}
-                    height="100%"
-                    bg={cardBg}
-                    boxShadow="lg"
-                    borderRadius="xl"
-                    borderTop="4px solid"
-                    borderColor={isSolved ? "green.400" : "teal.400"}
-                    whileHover={{ 
-                      scale: 1.05, 
-                      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
-                    }}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -50 }}
-                    transition={{ 
-                      duration: 0.6, 
-                      delay: i * 0.1,
-                      type: "spring",
-                      stiffness: 100
-                    }}
-                    layoutId={quiz.id}
-                  >
-                    <CardBody>
-                      <Flex direction="column" height="100%">
-                        <Box flex="1">
-                          {/* Quiz Title */}
-                          <Heading size="md" mb={3} color="teal.600">
-                            {quiz.level}
-                          </Heading>
-
-                          {/* Badges */}
-                          <HStack mb={4} wrap="wrap" spacing={2}>
-                            <Badge 
-                              colorScheme={isSolved ? "green" : "blue"} 
-                              variant="solid"
-                              borderRadius="full"
-                            >
-                              {isSolved ? "✓ Completed" : `${quiz.questions?.length || 0} Questions`}
-                            </Badge>
-                            <Badge 
-                              colorScheme={getDifficultyColor(quiz.difficulty)}
-                              variant="outline"
-                              borderRadius="full"
-                            >
-                              {quiz.difficulty}
-                            </Badge>
-                          </HStack>
-
-                          {/* Quiz Info */}
-                          <VStack align="stretch" spacing={3} mb={4}>
-                            <HStack>
-                              <Icon as={FaClock} color="gray.500" />
-                              <Text fontSize="sm" color={textColor}>
-                                ~{quiz.estimatedTime} minutes
-                              </Text>
-                            </HStack>
-                            
-                            <HStack>
-                              <Icon as={FaBookOpen} color="gray.500" />
-                              <Text fontSize="sm" color={textColor}>
-                                {quiz.category}
-                              </Text>
-                            </HStack>
-
-                            {userResult && (
-                              <HStack>
-                                <Icon as={FaStar} color="yellow.500" />
-                                <Text fontSize="sm" fontWeight="medium" color="yellow.600">
-                                  Score: {userResult.score}% ({userResult.points} pts)
-                                </Text>
-                              </HStack>
-                            )}
-                          </VStack>
-
-                          <Text fontSize="sm" color={textColor} noOfLines={2}>
-                            {quiz.description || "Test your knowledge on various environmental topics and challenges."}
-                          </Text>
-                        </Box>
-
-                        {/* Action Button */}
-                        <Button
-                          as={RouterLink}
-                          to={`/quiz/${quiz.id}`}
-                          colorScheme={isSolved ? "green" : "teal"}
-                          size="md"
-                          w="100%"
-                          mt={4}
-                          borderRadius="lg"
-                          _hover={{
-                            transform: "translateY(-2px)",
-                            boxShadow: "lg"
-                          }}
-                          transition="all 0.2s"
-                        >
-                          {isSolved ? "🏆 View Results" : "🚀 Start Quiz"}
-                        </Button>
-                      </Flex>
-                    </CardBody>
-                  </MotionCard>
-                );
-              })}
-            </SimpleGrid>
-          )}
-        </AnimatePresence>
-      </Box>
+                  <CardBody>
+                    <Heading size="md" mb={2} color={textColor}>
+                      {quiz.level}
+                    </Heading>
+                    <HStack mb={2}>
+                      <Badge colorScheme={getDifficultyColor(quiz.difficulty)}>{quiz.difficulty}</Badge>
+                      <Badge colorScheme="purple">{quiz.questions.length} Questions</Badge>
+                      <Badge colorScheme="cyan">
+                        <FaClock /> {quiz.estimatedTime} min
+                      </Badge>
+                    </HStack>
+                    <Text mb={3} color="gray.600" fontSize="sm" minH="48px">
+                      {quiz.description}
+                    </Text>
+                    {isCompleted && userResult && (
+                      <Box mb={3}>
+                        <Badge colorScheme="green" fontWeight="bold" mr={2}>
+                          ✓ Completed
+                        </Badge>
+                        <Badge colorScheme="yellow">
+                          Score: {userResult.score}/{userResult.total} ({userResult.percentage}%)
+                        </Badge>
+                      </Box>
+                    )}
+                    <Button
+                      as={RouterLink}
+                      to={`/quiz/${quiz.id}`}
+                      w="100%"
+                      size="md"
+                      colorScheme={isCompleted ? "green" : "teal"}
+                      mt={2}
+                      leftIcon={isCompleted ? <FaTrophy /> : <FaStar />}
+                      fontWeight="bold"
+                      variant={isCompleted ? "outline" : "solid"}
+                      _hover={{
+                        bg: "teal.500",
+                        color: "white",
+                        shadow: "xl",
+                      }}
+                      transition="all 0.2s"
+                    >
+                      {isCompleted ? "🏆 View Results" : "🚀 Start Quiz"}
+                    </Button>
+                  </CardBody>
+                </Card>
+              </ScaleFade>
+            );
+          })}
+        </SimpleGrid>
+      )}
     </Box>
   );
 }

@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import {
-  Box, Heading, Text, Button, VStack, HStack,
-  Flex, Spinner, Alert, AlertIcon, Radio, RadioGroup,
-  Progress, Card, CardBody, useToast, Badge, Modal,
-  ModalOverlay, ModalContent, ModalHeader, ModalBody,
-  ModalFooter, ModalCloseButton
+  Box,
+  Heading,
+  Text,
+  Button,
+  VStack,
+  HStack,
+  Flex,
+  Spinner,
+  Alert,
+  AlertIcon,
+  Progress,
+  Card,
+  CardBody,
+  useToast,
+  Badge,
 } from "@chakra-ui/react";
-import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useParams, Link as RouterLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { motion } from "framer-motion";
-
-const MotionVStack = motion(VStack);
 
 export default function QuizDetail() {
   const { id } = useParams();
@@ -20,203 +27,290 @@ export default function QuizDetail() {
   const [quiz, setQuiz] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [userAnswers, setUserAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [alreadyCompleted, setAlreadyCompleted] = useState(false);
   const toast = useToast();
   const navigate = useNavigate();
-  const [showResults, setShowResults] = useState(false);
 
+  // Load quiz and user results
   useEffect(() => {
     async function loadQuiz() {
       try {
-        const docRef = doc(db, "quiz_sections", id);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          const quizData = { id: docSnap.id, ...docSnap.data() };
+        const quizRef = doc(db, "quiz_sections", id);
+        const quizSnap = await getDoc(quizRef);
+        if (!quizSnap.exists()) {
+          setLoading(false);
+          return;
+        }
+        const quizData = { id: quizSnap.id, ...quizSnap.data() };
+        setQuiz(quizData);
 
-          // check if user already solved this quiz
-          if (user) {
-            const userRef = doc(db, "users", user.uid);
-            const userSnap = await getDoc(userRef);
-            if (userSnap.exists() && userSnap.data().quizResults) {
-              const existing = userSnap.data().quizResults.find(
-                (r) => r.quizId === quizData.id
-              );
-              if (existing) {
-                setScore(existing.score);
-                setCompleted(true);
-                setShowResults(true);
-              }
+        // Load user's previous quiz result (if any)
+        if (user) {
+          const userRef = doc(db, "users", user.uid);
+          const userSnap = await getDoc(userRef);
+          if (userSnap.exists()) {
+            const userData = userSnap.data();
+            const quizResults = userData.quizResults || [];
+            const existingResult = quizResults.find(r => r.quizId === id);
+            if (existingResult) {
+              setScore(existingResult.score);
+              setCompleted(true);
+              setAlreadyCompleted(true);
             }
           }
-
-          setQuiz(quizData);
         }
-      } catch (err) {
-        console.error("Error loading quiz:", err);
+      } catch (error) {
+        console.error("Error loading quiz:", error);
+        toast({
+          title: "Error loading quiz",
+          description: "Please try again later",
+          status: "error",
+          duration: 3000,
+        });
       } finally {
         setLoading(false);
       }
     }
-    loadQuiz();
-  }, [id, user]);
 
+    if (id) loadQuiz();
+  }, [id, user, toast]);
+
+  // Select Answer
+  const handleAnswerSelect = (answer) => {
+    setSelectedAnswer(answer);
+  };
+
+  // Go to Next or Finish
   const handleNext = async () => {
     if (!selectedAnswer) {
-      toast({ status: "warning", title: "Please select an answer" });
+      toast({
+        title: "Please select an answer",
+        status: "warning",
+        duration: 2000,
+      });
       return;
     }
-
     const currentQ = quiz.questions[currentQuestion];
-    if (selectedAnswer === currentQ.answer) setScore((prev) => prev + 1);
+    const isCorrect = selectedAnswer === currentQ.answer;
+
+    const newUserAnswers = [
+      ...userAnswers,
+      {
+        questionIndex: currentQuestion,
+        selectedAnswer,
+        correctAnswer: currentQ.answer,
+        isCorrect,
+      },
+    ];
+    setUserAnswers(newUserAnswers);
+
+    if (isCorrect) setScore(prev => prev + 1);
 
     if (currentQuestion < quiz.questions.length - 1) {
-      setCurrentQuestion((prev) => prev + 1);
+      setCurrentQuestion(prev => prev + 1);
       setSelectedAnswer("");
     } else {
+      // Finish quiz and save result
+      const finalScore = score + (isCorrect ? 1 : 0);
+      setScore(finalScore);
       setCompleted(true);
-      setShowResults(true);
-
       if (user) {
-        const userRef = doc(db, "users", user.uid);
-        const userSnap = await getDoc(userRef);
-        const prevResults = userSnap.exists() ? userSnap.data().quizResults || [] : [];
-
-        // check if already stored
-        const already = prevResults.some((r) => r.quizId === quiz.id);
-        if (!already) {
-          await updateDoc(userRef, {
-            quizResults: arrayUnion({
-              quizId: quiz.id,
-              quizName: quiz.level,
-              score: score + (selectedAnswer === currentQ.answer ? 1 : 0),
-              total: quiz.questions.length,
-              date: new Date().toISOString()
-            })
-          });
-        }
+        await saveQuizResult(finalScore, newUserAnswers);
       }
     }
   };
 
+  // Save or Overwrite Quiz Result
+  const saveQuizResult = async (finalScore, answers) => {
+    try {
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+      // Prepare result payload
+      const quizResult = {
+        quizId: quiz.id,
+        quizTitle: quiz.level || quiz.title || "Quiz",
+        score: finalScore,
+        total: quiz.questions.length,
+        percentage: Math.round((finalScore / quiz.questions.length) * 100),
+        answers: answers,
+        completedAt: new Date().toISOString(),
+        timeTaken: null,
+      };
+
+      if (userSnap.exists()) {
+        const userData = userSnap.data();
+        let quizResults = userData.quizResults || [];
+        // Remove old result for same quiz if exists, then add the new one
+        quizResults = quizResults.filter(r => r.quizId !== quiz.id);
+        quizResults.push(quizResult);
+        await updateDoc(userRef, { quizResults });
+      } else {
+        // New user document
+        await setDoc(userRef, {
+          email: user.email,
+          quizResults: [quizResult],
+          createdAt: new Date().toISOString(),
+        });
+      }
+      toast({
+        title: "Quiz completed!",
+        description: `You scored ${finalScore}/${quiz.questions.length}`,
+        status: "success",
+        duration: 3000,
+      });
+    } catch (error) {
+      console.error("Error saving quiz result:", error);
+      toast({
+        title: "Error saving results",
+        description: "Your quiz was completed but results couldn't be saved",
+        status: "warning",
+        duration: 3000,
+      });
+    }
+  };
+
+  // Retake Quiz
+  const retakeQuiz = () => {
+    setCurrentQuestion(0);
+    setSelectedAnswer("");
+    setUserAnswers([]);
+    setScore(0);
+    setCompleted(false);
+    setAlreadyCompleted(false);
+  };
+
+  // Loading
   if (loading) {
     return (
-      <Flex justify="center" py={10}>
-        <Spinner size="xl" color="teal.500" />
+      <Flex align="center" justify="center" minH="60vh">
+        <Spinner size="xl" /> <Text ml={4}>Loading quiz...</Text>
       </Flex>
     );
   }
-
   if (!quiz) {
     return (
-      <Box p={6} maxW="3xl" mx="auto">
-        <Alert status="error" borderRadius="md">
-          <AlertIcon />
-          Quiz not found
-        </Alert>
-        <Button as={RouterLink} to="/quizzes" mt={4}>
+      <Alert status="error">
+        <AlertIcon />
+        Quiz not found
+        <Button as={RouterLink} to="/quizzes" ml={4}>
           Back to Quizzes
         </Button>
-      </Box>
+      </Alert>
     );
   }
 
-  const currentQ = quiz.questions[currentQuestion];
+  // Main content
+  const currentQ = quiz.questions?.[currentQuestion];
   const progressValue = ((currentQuestion + 1) / quiz.questions.length) * 100;
 
   return (
-    <Box p={6} maxW="3xl" mx="auto">
-      <Button as={RouterLink} to="/quizzes" mb={6} colorScheme="teal" variant="outline">
+    <Box maxW="600px" mx="auto" p={4}>
+      <Button as={RouterLink} to="/quizzes" mb={4} variant="ghost">
         ← Back to Quizzes
       </Button>
-
-      <Card boxShadow="xl" borderRadius="lg">
-        <Box bg="teal.600" p={4} color="white">
-          <Heading size="md">{quiz.level}</Heading>
-          {!completed && (
-            <Text>Question {currentQuestion + 1} of {quiz.questions.length}</Text>
-          )}
-        </Box>
-
-        {!completed && (
-          <Progress value={progressValue} size="sm" colorScheme="teal" />
-        )}
-
-        <CardBody p={6}>
-          {!completed ? (
-            <MotionVStack
-              spacing={6}
-              align="stretch"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Heading size="lg" color="teal.700">
-                {currentQ.question}
-              </Heading>
-
-              <RadioGroup value={selectedAnswer} onChange={setSelectedAnswer}>
-                <VStack spacing={3} align="stretch">
-                  {currentQ.options.map((option, index) => (
-                    <Card
-                      key={index}
-                      variant={selectedAnswer === option ? "filled" : "outline"}
-                      bg={selectedAnswer === option ? "teal.50" : "white"}
-                      borderColor={selectedAnswer === option ? "teal.300" : "gray.200"}
-                      _hover={{ borderColor: "teal.400", cursor: "pointer" }}
-                      onClick={() => setSelectedAnswer(option)}
-                    >
-                      <CardBody py={3}>
-                        <Text>{option}</Text>
-                      </CardBody>
-                    </Card>
-                  ))}
-                </VStack>
-              </RadioGroup>
-
-              <Button colorScheme="teal" size="lg" onClick={handleNext}>
-                {currentQuestion < quiz.questions.length - 1 ? "Next Question" : "Finish Quiz"}
-              </Button>
-            </MotionVStack>
-          ) : (
-            <VStack spacing={6} align="center" py={8}>
-              <Heading color="teal.700">Quiz Completed!</Heading>
-              <Text fontSize="xl">
-                Your score: <Badge colorScheme="green">{score} / {quiz.questions.length}</Badge>
-              </Text>
-              <HStack spacing={4}>
-                <Button colorScheme="teal" onClick={() => navigate(0)}>Try Again</Button>
-                <Button as={RouterLink} to="/quizzes" variant="outline">More Quizzes</Button>
-              </HStack>
-            </VStack>
+      <Card mb={6}>
+        <CardBody>
+          <Heading size="md" mb={2}>
+            {quiz.level || quiz.title}
+          </Heading>
+          {quiz.description && (
+            <Text fontSize="md" mb={2}>{quiz.description}</Text>
           )}
         </CardBody>
       </Card>
-
-      {/* Results Modal */}
-      <Modal isOpen={showResults} onClose={() => setShowResults(false)} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Quiz Results</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <VStack spacing={4}>
-              <Heading>{score}/{quiz.questions.length}</Heading>
-              <Text>
-                {score === quiz.questions.length
-                  ? "🏆 Perfect score!"
-                  : score >= quiz.questions.length * 0.7
-                  ? "🌟 Great job!"
-                  : "👍 Keep practicing!"}
-              </Text>
+      {!completed && (
+        <Box>
+          <Progress value={progressValue} size="sm" mb={4} />
+          <Text fontWeight="bold" mb={2}>
+            Question {currentQuestion + 1} of {quiz.questions.length}
+          </Text>
+          <Box mb={4}>
+            <Text fontSize="xl" mb={3}>{currentQ?.question}</Text>
+            <VStack>
+              {currentQ?.options?.map((option, idx) => (
+                <Button
+                  key={idx}
+                  onClick={() => handleAnswerSelect(option)}
+                  variant={selectedAnswer === option ? "solid" : "outline"}
+                  size="md"
+                  w="100%"
+                  mb={2}
+                  colorScheme={
+                    selectedAnswer === option ? "teal" : "gray"
+                  }
+                  transition="all 0.2s"
+                >
+                  {option}
+                </Button>
+              ))}
             </VStack>
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="teal" onClick={() => setShowResults(false)}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+          </Box>
+          <Button
+            colorScheme="blue"
+            onClick={handleNext}
+            mt={4}
+            w="100%"
+          >
+            {currentQuestion < quiz.questions.length - 1
+              ? "Next Question"
+              : "Finish Quiz"}
+          </Button>
+        </Box>
+      )}
+      {completed && (
+        <VStack spacing={4} mt={6}>
+          <Heading size="md">
+            {alreadyCompleted ? "Quiz Already Completed!" : "🎉 Quiz Completed!"}
+          </Heading>
+          <Text fontSize="xl">
+            Your score:{" "}
+            <Badge
+              colorScheme={
+                score === quiz.questions.length
+                  ? "green"
+                  : score >= quiz.questions.length * 0.7
+                  ? "yellow"
+                  : "red"
+              }
+              fontSize="lg"
+              p={2}
+            >
+              {score} / {quiz.questions.length}
+            </Badge>
+          </Text>
+          <Text fontSize="lg">
+            {Math.round((score / quiz.questions.length) * 100)}% correct
+          </Text>
+          <Text>
+            {score === quiz.questions.length
+              ? "🏆 Perfect score! Excellent work!"
+              : score >= quiz.questions.length * 0.7
+              ? "🌟 Great job! You did well!"
+              : "📚 Keep practicing to improve your score!"}
+          </Text>
+          <Button
+            colorScheme="teal"
+            w="100%"
+            onClick={retakeQuiz}
+            mt={2}
+          >
+            Try Again
+          </Button>
+          <Button
+            as={RouterLink}
+            to="/quizzes"
+            w="100%"
+            variant="outline"
+            mt={2}
+          >
+            More Quizzes
+          </Button>
+        </VStack>
+      )}
     </Box>
   );
 }
