@@ -5,13 +5,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCxyfgcaKG6D3itAlilDbsmsIwrTJQQ8jA",
-  authDomain: "eco-shaala-cae9c.firebaseapp.com",
-  projectId: "eco-shaala-cae9c",
-  storageBucket: "eco-shaala-cae9c.firebasestorage.app",
-  messagingSenderId: "996471294063",
-  appId: "1:996471294063:web:30ce0c973db617ac5a659a",
-  measurementId: "G-6L4RJBHFVH"
+  apiKey: "AIzaSyCBOkPzcKbite3HblTW8ZCd8NrAdgx1_xU",
+  authDomain: "eco-shaala.firebaseapp.com",
+  projectId: "eco-shaala",
+  storageBucket: "eco-shaala.firebasestorage.app",
+  messagingSenderId: "800435579324",
+  appId: "1:800435579324:web:b947e651ad6f2a90bde3b9",
+  measurementId: "G-JVBB7CCB9B"
 };
 
 
