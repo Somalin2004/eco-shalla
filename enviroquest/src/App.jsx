@@ -12,6 +12,12 @@ import Quizzes from "./pages/Quizzes";
 import QuizDetail from "./pages/QuizDetail";
 import Dashboard from "./pages/Dashboard";
 
+// --- Import your games ---
+import GameBioticAbiotic from "./pages/GameBioticAbiotic";
+import GameWasteSegregation from "./pages/GameWasteSegregation";
+import GamePlantCare from "./pages/GamePlantCare";
+import CleanRiverGame from "./pages/CleanRiverGame";
+
 // Theme customization
 const theme = extendTheme({
   styles: {
@@ -37,6 +43,11 @@ export default function App() {
             <Route path="/quizzes" element={<Quizzes />} />
             <Route path="/quiz/:id" element={<QuizDetail />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            {/* --- Game routes --- */}
+            <Route path="/game-biotic-abiotic" element={<GameBioticAbiotic />} />
+            <Route path="/game-waste-segregation" element={<GameWasteSegregation />} />
+            <Route path="/game-plant-care" element={<GamePlantCare />} />
+             <Route path="/rivercleaning" element={< CleanRiverGame/>} />
           </Routes>
         </AnimatePresence>
       </Box>

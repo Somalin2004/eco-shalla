@@ -34,28 +34,34 @@ export function AuthProvider({ children }) {
     }
   };
 
-  // Email/password signup
+  // 🔹 Email/password signup
   const signup = async (email, password) => {
     const cred = await createUserWithEmailAndPassword(auth, email, password);
     await createUserDoc(cred.user);
     return cred.user;
   };
 
-  // Email/password login
-  const login = (email, password) =>
-    signInWithEmailAndPassword(auth, email, password);
+  // 🔹 Email/password login
+  const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-  // Google sign-in
-  const signInWithGoogle = async () => {
+  // 🔹 Google login
+  const loginWithGoogle = async () => {
     const cred = await signInWithPopup(auth, googleProvider);
     await createUserDoc(cred.user);
     return cred.user;
   };
 
-  // Logout
+  // 🔹 Google signup (same as login but separated for clarity)
+  const signupWithGoogle = async () => {
+    const cred = await signInWithPopup(auth, googleProvider);
+    await createUserDoc(cred.user);
+    return cred.user;
+  };
+
+  // 🔹 Logout
   const logout = () => signOut(auth);
 
-  // Auth state listener
+  // 🔹 Auth state listener
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (u) => {
       if (u) await createUserDoc(u);
@@ -71,7 +77,8 @@ export function AuthProvider({ children }) {
     signup,
     login,
     logout,
-    signInWithGoogle, // 👈 renamed for consistency with your Signup.jsx
+    loginWithGoogle,  // 👈 use in Login.jsx
+    signupWithGoogle, // 👈 use in Signup.jsx
   };
 
   return (
