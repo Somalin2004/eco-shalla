@@ -7,13 +7,11 @@ import {
   Card,
   CardBody,
   Flex,
-  Spinner,
   Badge,
   SimpleGrid,
   Progress,
   Avatar,
   HStack,
-  Divider,
   Skeleton,
   SkeletonText,
 } from "@chakra-ui/react";
@@ -23,6 +21,8 @@ import { useAuth } from "../context/AuthContext";
 import { motion } from "framer-motion";
 
 const MotionCard = motion(Card);
+const MotionBox = motion(Box);
+const MotionBadge = motion(Badge);
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -48,14 +48,13 @@ export default function Dashboard() {
   }, [user]);
 
   if (loading) {
-    // Use a skeleton loader with cards for better loading UX
     return (
       <Box maxW="900px" mx="auto" p={6}>
-        <Skeleton height="40px" mb={6} />
+        <Skeleton height="40px" mb={6} borderRadius="md" />
         <SimpleGrid columns={[1, 2, 3]} spacing={6}>
           {[...Array(6)].map((_, idx) => (
-            <Card key={idx} p={4} borderRadius="md" boxShadow="md">
-              <Skeleton height="20px" mb={4} />
+            <Card key={idx} p={4} borderRadius="lg" boxShadow="sm">
+              <Skeleton height="20px" mb={4} borderRadius="md" />
               <SkeletonText noOfLines={3} spacing="4" />
             </Card>
           ))}
@@ -69,7 +68,7 @@ export default function Dashboard() {
   const avgScore =
     totalCompleted > 0
       ? Math.round(
-          (quizResults.reduce((acc, r) => acc + (r.score / r.total), 0) /
+          (quizResults.reduce((acc, r) => acc + r.score / r.total, 0) /
             totalCompleted) *
             100
         )
@@ -87,18 +86,26 @@ export default function Dashboard() {
   const accuracy =
     totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
 
-  // Streak calculation - unique days counting
-  // Assumes date field format is ISO string or timestamp convertible
+  // Streak calculation
   const dates = quizResults
-    .map((r) => new Date(r.date || r.completedAt || r.completedAt).toDateString())
+    .map((r) =>
+      new Date(r.date || r.completedAt || r.completedAt).toDateString()
+    )
     .filter(Boolean);
   const uniqueDays = [...new Set(dates)];
   const streak = uniqueDays.length;
 
   return (
     <Box maxW="900px" mx="auto" p={6}>
-      {/* User Profile */}
-      <Card mb={8} boxShadow="md" borderRadius="lg">
+      {/* Profile */}
+      <MotionCard
+        mb={8}
+        boxShadow="md"
+        borderRadius="lg"
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
         <CardBody>
           <Flex align="center" gap={6} flexWrap="wrap">
             <Avatar
@@ -123,9 +130,9 @@ export default function Dashboard() {
             </Box>
           </Flex>
         </CardBody>
-      </Card>
+      </MotionCard>
 
-      {/* Overall Stats */}
+      {/* Progress Overview */}
       <Card mb={8} boxShadow="md" borderRadius="lg">
         <CardBody>
           <Heading size="md" mb={6}>
@@ -134,20 +141,31 @@ export default function Dashboard() {
           <SimpleGrid columns={[1, 2, 3]} spacing={8} minChildWidth="140px">
             {[
               { label: "Total Quizzes Completed", value: totalCompleted, color: "teal.600" },
-              { label: "Average Score", value: `${avgScore}%`, color: "teal.600" },
-              { label: "Accuracy", value: `${accuracy}%`, color: "teal.600" },
+              { label: "Average Score", value: `${avgScore}%`, color: "blue.600" },
+              { label: "Accuracy", value: `${accuracy}%`, color: "purple.600" },
               { label: "Highest Score", value: `${highestScore.toFixed(0)}%`, color: "green.500" },
               { label: "Lowest Score", value: `${lowestScore.toFixed(0)}%`, color: "red.500" },
-              { label: "Active Days", value: streak, color: "purple.500" },
-            ].map(({ label, value, color }) => (
-              <Box key={label} textAlign="center">
+              { label: "Active Days", value: streak, color: "orange.500" },
+            ].map(({ label, value, color }, idx) => (
+              <MotionBox
+                key={label}
+                textAlign="center"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                p={3}
+                borderRadius="md"
+                boxShadow="sm"
+                bg="gray.50"
+              >
                 <Text fontWeight="bold" mb={2}>
                   {label}
                 </Text>
                 <Text fontSize="2xl" color={color}>
                   {value}
                 </Text>
-              </Box>
+              </MotionBox>
             ))}
           </SimpleGrid>
         </CardBody>
@@ -159,32 +177,31 @@ export default function Dashboard() {
           <Heading size="md" mb={6}>
             Achievements
           </Heading>
-          <HStack spacing={4} wrap="wrap" aria-label="User achievements badges">
-            {totalCompleted > 0 && (
-              <Badge colorScheme="teal" variant="subtle" px={3} py={1} borderRadius="md">
-                🎉 First Quiz Completed
-              </Badge>
-            )}
-            {avgScore >= 90 && (
-              <Badge colorScheme="yellow" variant="subtle" px={3} py={1} borderRadius="md">
-                🏆 High Scorer
-              </Badge>
-            )}
-            {totalCompleted >= 5 && (
-              <Badge colorScheme="purple" variant="subtle" px={3} py={1} borderRadius="md">
-                🔥 5 Quizzes Completed
-              </Badge>
-            )}
-            {streak >= 3 && (
-              <Badge colorScheme="red" variant="subtle" px={3} py={1} borderRadius="md">
-                📅 3-Day Streak
-              </Badge>
-            )}
-            {accuracy === 100 && (
-              <Badge colorScheme="green" variant="subtle" px={3} py={1} borderRadius="md">
-                Perfect Accuracy
-              </Badge>
-            )}
+          <HStack spacing={4} wrap="wrap">
+            {[
+              totalCompleted > 0 && { text: "🎉 First Quiz Completed", color: "teal" },
+              avgScore >= 90 && { text: "🏆 High Scorer", color: "yellow" },
+              totalCompleted >= 5 && { text: "🔥 5 Quizzes Completed", color: "purple" },
+              streak >= 3 && { text: "📅 3-Day Streak", color: "red" },
+              accuracy === 100 && { text: "✅ Perfect Accuracy", color: "green" },
+            ]
+              .filter(Boolean)
+              .map((badge, idx) => (
+                <MotionBadge
+                  key={idx}
+                  colorScheme={badge.color}
+                  variant="subtle"
+                  px={3}
+                  py={1}
+                  borderRadius="md"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: idx * 0.15 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {badge.text}
+                </MotionBadge>
+              ))}
             {totalCompleted === 0 && (
               <Text color="gray.500" fontStyle="italic">
                 No achievements yet. Keep going!
@@ -207,6 +224,7 @@ export default function Dashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
+              whileHover={{ scale: 1.02 }}
               boxShadow="md"
               borderRadius="lg"
               p={4}
@@ -231,10 +249,9 @@ export default function Dashboard() {
                     </Text>
                     <Progress
                       value={pct}
-                      colorScheme={pct >= 70 ? "green" : pct >= 40 ? "yellow" : "orange"}
+                      colorScheme={pct >= 70 ? "green" : pct >= 40 ? "yellow" : "red"}
                       size="sm"
                       borderRadius="md"
-                      aria-label={`Score progress: ${Math.round(pct)}%`}
                     />
                   </Box>
                   <Badge
@@ -244,7 +261,6 @@ export default function Dashboard() {
                     borderRadius="md"
                     minW={120}
                     textAlign="center"
-                    aria-label="Performance badge"
                   >
                     {pct >= 90 ? "Excellent" : pct >= 70 ? "Good" : "Practice More"}
                   </Badge>

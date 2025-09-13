@@ -69,6 +69,7 @@ export default function Navbar() {
     { name: "Waste Segregation", path: "/game-waste-segregation" },
     { name: "Plant Care", path: "/game-plant-care" },
     { name: "River Cleaning", path: "/rivercleaning" },
+    { name: "Air Purifier", path: "/airpurifier" },
   ];
 
   return (

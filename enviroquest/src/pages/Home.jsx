@@ -121,7 +121,7 @@ export default function Home() {
 
   // Typewriter effect
   useEffect(() => {
-    const text = "Learn. Act. Impact.";
+    const text = "Play. Learn. Protect.";
     let i = 0;
     const timer = setInterval(() => {
       setTypedText(text.slice(0, i));
@@ -222,24 +222,25 @@ export default function Home() {
             </Box>
 
             {/* Enhanced Heading */}
-            <VStack spacing={6}>
-              <Heading size={{ base: "2xl", md: "4xl" }} color={textColor} fontWeight="bold">
-                {user ? `Welcome back, ${user.displayName || 'Eco Champion'}!` : 'Become an'}
-              </Heading>
-              <Heading
-                size={{ base: "3xl", md: "5xl" }}
-                bgGradient="linear(to-r, blue.600, purple.600, cyan.600)"
-                bgClip="text"
-                fontWeight="bold"
-                position="relative"
-              >
-                Eco Champion
-                <Text fontSize="lg" color="green.500" mt={2} fontWeight="semibold" minH="30px">
-                  {typedText}
-                  <Box as="span" animation={`${pulse} 1s infinite`} ml={1}>|</Box>
-                </Text>
-              </Heading>
-            </VStack>
+            {/* Enhanced Heading */}
+<VStack spacing={6}>
+  <Heading size={{ base: "2xl", md: "4xl" }} color={textColor} fontWeight="bold">
+    {user ? `Welcome back, ${user.displayName || 'Eco Champion'}!` : '✨Together we can build a greener tomorrow. ✨'}
+  </Heading>
+  <Heading
+    size={{ base: "3xl", md: "5xl" }}
+    bgGradient="linear(to-r, blue.600, purple.600, cyan.600)"
+    bgClip="text"
+    fontWeight="bold"
+    position="relative"
+  >
+    Eco Champion
+    <Text fontSize="lg" color="green.500" mt={2} fontWeight="semibold" minH="30px">
+      {typedText}
+      <Box as="span" animation={`${pulse} 1s infinite`} ml={1}>|</Box>
+    </Text>
+  </Heading>
+</VStack>
 
             {/* Quote Section */}
             <MotionBox

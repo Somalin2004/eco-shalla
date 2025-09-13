@@ -17,6 +17,7 @@ import GameBioticAbiotic from "./pages/GameBioticAbiotic";
 import GameWasteSegregation from "./pages/GameWasteSegregation";
 import GamePlantCare from "./pages/GamePlantCare";
 import CleanRiverGame from "./pages/CleanRiverGame";
+import AirPurifierGames from "./pages/AirPurifierGames";
 
 // Theme customization
 const theme = extendTheme({
@@ -48,6 +49,7 @@ export default function App() {
             <Route path="/game-waste-segregation" element={<GameWasteSegregation />} />
             <Route path="/game-plant-care" element={<GamePlantCare />} />
              <Route path="/rivercleaning" element={< CleanRiverGame/>} />
+             <Route path="/airpurifier" element={<AirPurifierGames />} />
           </Routes>
         </AnimatePresence>
       </Box>
